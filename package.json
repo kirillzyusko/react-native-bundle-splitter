@@ -1,0 +1,13 @@
+{
+  "name": "react-native-navigation-bundle-splitter",
+  "devDependencies": {
+
+  },
+  "dependencies": {
+
+  },
+  "peerDependencies": {
+    "react": "^16.6.1",
+    "react-native": "^0.59.1"
+  }
+}
