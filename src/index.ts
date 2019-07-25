@@ -1,6 +1,5 @@
 import optimized from "./Optimized";
-
-const mapLoadable = {};
+import { mapLoadable } from './bundler';
 
 type Preloadable = {
     name: string;
