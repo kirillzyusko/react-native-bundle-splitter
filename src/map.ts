@@ -1,16 +1,20 @@
 import { mapLoadable } from './bundler';
 
-const map = {};
+const cache = {} as any;
 
-export const getScreen = (screenName: string) => {
-    // console.log(`I require: ${screenName}`);
-    // console.log(54353, map);
-    if (!map[screenName]) {
-        const screen = mapLoadable[screenName].require();
-        map[screenName] = screen;
+export const isCached = (componentName: string) => !!cache[componentName];
 
-        return screen;
+export const getComponent = (componentName: string) => {
+    if (!isCached(componentName)) {
+        const { require, ...rest } = mapLoadable[componentName];
+        const component = require();
+        cache[componentName] = {
+            ...rest,
+            component,
+        };
+
+        return cache[componentName];
     }
 
-    return map[screenName];
+    return cache[componentName];
 };

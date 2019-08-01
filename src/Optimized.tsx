@@ -1,40 +1,62 @@
-import React, { Component } from 'react';
-import { getScreen } from './map';
+// @ts-ignore
+import React, { Component, ReactNode } from 'react';
+import { getComponent, isCached } from './map';
+import { mapLoadable } from './bundler';
 
-const optimized = (screenName: string, staticProps?: object) => {
-  class Optimized extends Component {
-    component = null;
-    state = { needsExpensive: false };
+type Props = {};
+type State = {
+  needsExpensive: boolean;
+};
+
+// @ts-ignore
+const optimized = (screenName: string) => {
+  class OptimizedComponent extends Component<Props, State> {
+    component: ReactNode = null;
+
+    constructor(props: Props) {
+      super(props);
+      const cached = isCached(screenName);
+      if (cached) {
+        const data = getComponent(screenName);
+        this.component = data.component;
+      }
+
+      // @ts-ignore
+      this.state = {
+        needsExpensive: cached
+      };
+    }
 
     componentDidMount() {
       if (this.component === null) {
-        // console.time(`Require ${screenName} took`);
-        this.component = getScreen(screenName).default;
-        // console.timeEnd(`Require ${screenName} took`);
-      }
+        const data = getComponent(screenName);
+        this.component = data.component;
 
-      this.setState(() => ({
-        needsExpensive: true,
-      }));
+        // @ts-ignore
+        this.setState(() => ({
+            needsExpensive: true,
+        }));
+      }
     }
 
     render() {
-      const OptimizedComponent = this.component;
+      const Component = this.component;
 
-      return this.state.needsExpensive ? <OptimizedComponent {...this.props} /> : null;
+      // @ts-ignore
+      return this.state.needsExpensive ? <Component {...this.props} /> : null;
     }
   }
 
-  // console.log(`Screen ${screenName} has next static props ${staticProps}`);
+  const registerData = mapLoadable[screenName];
 
-  if (staticProps) {
-    Object.keys(staticProps).forEach((key) => {
-      // console.log(`${screenName} ${key} ${staticProps[key]}`);
-      Optimized[key] = staticProps[key];
+  if (registerData.static) {
+    Object.keys(registerData.static).forEach((key) => {
+      // @ts-ignore
+      OptimizedComponent[key] = registerData.static[key];
     });
   }
 
-  return Optimized;
+  return OptimizedComponent;
 };
 
 export default optimized;

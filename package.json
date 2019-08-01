@@ -1,11 +1,16 @@
 {
-  "name": "react-native-navigation-bundle-splitter",
+  "name": "react-native-bundle-splitter",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "minify": "jsmin -o dist/index.min.js dist/index.js",
+    "build": "tsc && npm run minify"
+  },
   "devDependencies": {
-
+    "jsmin": "^1.0.1"
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^16.6.1",
     "react-native": "^0.59.1"

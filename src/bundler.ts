@@ -1,1 +1,1 @@
-export const mapLoadable = {};
+export const mapLoadable = {} as any;
