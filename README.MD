@@ -4,6 +4,9 @@
 
 #### Context and motivation
 
+## Setup
+enabling RAM bundle format for native optimizations and so on...
+
 ## Usage
 
 Example with react-navigation
