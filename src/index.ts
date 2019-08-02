@@ -1,15 +1,9 @@
 import optimized from './Optimized';
 import { mapLoadable } from './bundler';
+import { PreLoadable } from './interface';
+import { isCached } from './map';
 
-type Preloadable = {
-    name: string;
-    require: () => ({});
-    priority: number;
-    group: string;
-    static?: object;
-};
-
-export const register = (component: Preloadable) => {
+export const register = (component: PreLoadable) => {
     const { name } = component;
 
     if (mapLoadable[name] !== undefined) {
@@ -26,3 +20,7 @@ export const preload = () => {
     // @ts-ignore
     return  new Promise.resolve('');
 };
+
+export {
+  isCached
+}
