@@ -65,7 +65,7 @@ class DetailsScreen extends React.Component {
 import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-import { AppNavigator } from './navigator.ts';
+import { AppNavigator } from './navigator';
 
 const AppContainer = createAppContainer(AppNavigator);
 
@@ -79,7 +79,7 @@ export default class App extends React.Component {
 #### Before
 
 ```typescript jsx
-// App.ts
+// navigator.ts
 import { createStackNavigator } from 'react-navigation';
 
 import DetailsScreen from './details';
@@ -119,7 +119,7 @@ export const AppNavigator = createStackNavigator(
 ```
 ## API
 
-- register(): void
-- preload(): Promise<void>
-- use(): ReactComponent
-- isCached(): boolean
+- register(component: { name: string, require: () => object, static: object, priority: number, group: string }): void
+- preload(componentName: string): Promise<void>
+- use(componentName: string): ReactComponent
+- isCached(componentName: string): boolean
