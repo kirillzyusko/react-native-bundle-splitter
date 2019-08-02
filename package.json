@@ -16,5 +16,19 @@
   "peerDependencies": {
     "react": "^16.6.1",
     "react-native": "^0.59.1"
-  }
+  },
+  "keywords": [
+    "react-native",
+    "bundle",
+    "bundles",
+    "bundle-splitter",
+    "bundle-splitting",
+    "splitter",
+    "splitting",
+    "inline",
+    "require",
+    "RAM",
+    "RAM-bundles",
+    "js-bundle"
+  ]
 }
