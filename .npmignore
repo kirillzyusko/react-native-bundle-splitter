@@ -7,6 +7,9 @@
 .gitignore
 tsconfig.json
 src
+.gitignore
+package-lock.json
+node_modules
 
 # User-specific stuff
 .idea
