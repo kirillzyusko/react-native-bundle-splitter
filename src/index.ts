@@ -1,16 +1,28 @@
-import optimized from './Optimized';
+import optimized from './optimized';
 import { mapLoadable } from './bundler';
-import { PreLoadable } from './interface';
+import {Component, EnhancedPreLoadable, PreLoadable} from './interface';
 import { isCached } from './map';
 
+const defaultPreLoadable: EnhancedPreLoadable = {
+    cached: true,
+    placeholder: null,
+    extract: 'default',
+};
+
 export const register = (component: PreLoadable) => {
-    const { name } = component;
+    const enhancedComponent: Component = {
+        ...defaultPreLoadable,
+        ...component
+    };
+    const { name } = enhancedComponent;
 
     if (mapLoadable[name] !== undefined) {
         throw new Error(`You try to add new component with already existing name: ${name}`);
     }
 
-    mapLoadable[name] = component;
+    mapLoadable[name] = enhancedComponent;
+    // do we need to do this?
+    return use(name);
 };
 
 // @ts-ignore

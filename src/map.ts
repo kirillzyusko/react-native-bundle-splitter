@@ -7,7 +7,8 @@ export const isCached = (componentName: string) => !!cache[componentName];
 export const getComponent = (componentName: string) => {
     if (!isCached(componentName)) {
         const { require, ...rest } = mapLoadable[componentName];
-        const component = require();
+        // @ts-ignore
+        const component = require()[mapLoadable[componentName].extract];
         cache[componentName] = {
             ...rest,
             component,

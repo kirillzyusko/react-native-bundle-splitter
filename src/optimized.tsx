@@ -12,6 +12,7 @@ type State = {
 const optimized = (screenName: string) => {
   class OptimizedComponent extends Component<Props, State> {
     component: ReactNode = null;
+    placeholder: ReactNode = mapLoadable[screenName].placeholder;
 
     constructor(props: Props) {
       super(props);
@@ -41,9 +42,10 @@ const optimized = (screenName: string) => {
 
     render() {
       const Component = this.component;
+      const Placeholder = this.placeholder;
 
       // @ts-ignore
-      return this.state.needsExpensive ? <Component {...this.props} /> : null;
+      return this.state.needsExpensive ? <Component {...this.props} /> : <Placeholder />;
     }
   }
 

@@ -1,7 +1,7 @@
-import { PreLoadable } from './interface';
+import { Component } from './interface';
 
 type Loadable = {
-  [key: string]: PreLoadable
+  [key: string]: Component
 }
 
 export const mapLoadable: Loadable = {};
