@@ -43,9 +43,10 @@ const optimized = (screenName: string) => {
     render() {
       const Component = this.component;
       const Placeholder = this.placeholder;
+      const PlaceholderComponent = Placeholder ? <Placeholder /> : Placeholder;
 
       // @ts-ignore
-      return this.state.needsExpensive ? <Component {...this.props} /> : <Placeholder />;
+      return this.state.needsExpensive ? <Component {...this.props} /> : PlaceholderComponent;
     }
   }
 
