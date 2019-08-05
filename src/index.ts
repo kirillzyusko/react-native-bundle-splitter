@@ -1,7 +1,7 @@
 import optimized from './optimized';
 import { mapLoadable } from './bundler';
-import {Component, EnhancedPreLoadable, PreLoadable} from './interface';
-import { isCached } from './map';
+import { Component, EnhancedPreLoadable, PreLoadable } from './interface';
+import { getComponent, isCached } from './map';
 
 const defaultPreLoadable: EnhancedPreLoadable = {
     cached: true,
@@ -28,11 +28,15 @@ export const register = (component: PreLoadable) => {
 // @ts-ignore
 export const use = (componentName: string) => optimized(componentName);
 
-export const preload = () => {
-    // @ts-ignore
-    return  new Promise.resolve('');
-};
+export const preload = (componentName: string) => new Promise((resolve, reject) => {
+    try {
+        getComponent(componentName);
+        resolve();
+    } catch (e) {
+        reject(e);
+    }
+});
 
 export {
-  isCached
+    isCached
 }

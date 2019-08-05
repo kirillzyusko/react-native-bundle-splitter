@@ -11,74 +11,6 @@ enabling RAM bundle format for native optimizations and so on...
 
 Example with react-navigation
 
-#### Core
-
-```typescript jsx
-// screens.ts
-export const screens = {
-    home: 'Home',
-    details: 'Details'
-};
-```
-
-```typescript jsx
-// home.ts
-import React from 'react';
-import { Button, View, Text } from 'react-native';
-import { screens } from './screens';
-
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => this.props.navigation.navigate(screens.details)}
-        />
-      </View>
-    );
-  }
-}
-```
-
-```typescript jsx
-// details.ts
-import React from 'react';
-import { Button, View, Text } from 'react-native';
-import { screens } from './screens';
-
-class DetailsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-        <Button
-          title="Go to Details... again"
-          onPress={() => this.props.navigation.navigate(screens.home)}
-        />
-      </View>
-    );
-  }
-}
-```
-
-```typescript jsx
-// App.ts
-import React from 'react';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-
-import { AppNavigator } from './navigator';
-
-const AppContainer = createAppContainer(AppNavigator);
-
-export default class App extends React.Component {
-  render() {
-    return <AppContainer />;
-  }
-}
-```
-
 #### Before
 
 ```typescript jsx
@@ -90,11 +22,11 @@ import HomeScreen from './home';
 
 export const AppNavigator = createStackNavigator(
   {
-    [screens.home]: HomeScreen,
-    [screens.details]: DetailsScreen
+    'home': HomeScreen,
+    'details': DetailsScreen
   },
   {
-    initialRouteName: screens.home
+    initialRouteName: 'home'
   }
 );
 ```
@@ -104,25 +36,22 @@ export const AppNavigator = createStackNavigator(
 ```typescript jsx
 // navigator.ts
 import { createStackNavigator } from 'react-navigation';
-import { register, use } from 'react-native-bundle-splitter';
-
-register({ name: screens.home, require: () => require('./home') });
-register({ name: screens.details, require: () => require('./details') });
+import { register } from 'react-native-bundle-splitter';
 
 export const AppNavigator = createStackNavigator(
   {
-    [screens.home]: use(screens.home),
-    [screens.details]: use(screens.details)
+    'home': register({ name: 'home', require: () => require('./home') }),
+    'details': register({ name: 'details', require: () => require('./details') })
   },
   {
-    initialRouteName: screens.home
+    initialRouteName: 'home'
   }
 );
 
 ```
 ## API
 
-- register(component: { name: string, require: () => object, static: object, priority: number, group: string }): void
+- register(component: PreLoadable): ReactComponent
 - preload(componentName: string): Promise<void>
 - use(componentName: string): ReactComponent
 - isCached(componentName: string): boolean
