@@ -17,6 +17,7 @@ const optimized = (screenName: string) => {
     constructor(props: Props) {
       super(props);
       const cached = isCached(screenName);
+
       if (cached) {
         const data = getComponent(screenName);
         this.component = data.component;

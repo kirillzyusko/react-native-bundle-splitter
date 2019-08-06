@@ -1,8 +1,12 @@
 ## Description
 
+Library, which provide easy way to split your bundle.
+
 #### Video
 
 #### Context and motivation
+
+## Docs
 
 ## Setup
 enabling RAM bundle format for native optimizations and so on...
