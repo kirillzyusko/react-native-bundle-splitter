@@ -21,20 +21,32 @@ export const register = (component: PreLoadable) => {
     }
 
     mapLoadable[name] = enhancedComponent;
-    // do we need to do this?
-    return use(name);
+
+    return optimized(name);
 };
 
-// @ts-ignore
-export const use = (componentName: string) => optimized(componentName);
-
-export const preload = (componentName: string) => new Promise((resolve, reject) => {
+const component = (name: string) => new Promise((resolve, reject) => {
     try {
-        getComponent(componentName);
-        resolve();
+        if (isCached(name)) {
+            resolve();
+        } else {
+            getComponent(name);
+            resolve();
+        }
     } catch (e) {
         reject(e);
     }
+});
+
+const group = (name: string) => {
+    const components = Object.keys(mapLoadable).filter((componentName) => mapLoadable[componentName].group === name);
+
+    return Promise.all(components.map((name) => component(name)))
+};
+
+export const preload = () => ({
+    component,
+    group
 });
 
 export {

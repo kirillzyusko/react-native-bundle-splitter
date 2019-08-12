@@ -4,7 +4,7 @@ export type PreLoadable = {
     name: string;
     require: () => ({});
     // priority: number;
-    // group: string;
+    group?: string;
     static?: object;
 };
 
