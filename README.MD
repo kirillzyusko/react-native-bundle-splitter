@@ -1,61 +1,17 @@
-## Description
+# React Native Bundle Splitter
 
-Library, which provide easy way to split your bundle.
+[![NPM version](https://badge.fury.io/js/react-native-bundle-splitter.svg)](http://badge.fury.io/js/react-native-bundle-splitter)
+![npm](https://img.shields.io/npm/dw/react-native-bundle-splitter.svg)
 
-#### Video
+Decrease your time start up and RAM memory consumption via using this library.
 
-#### Context and motivation
+## Demonstration
 
-## Docs
+<img src="https://github.com/kirillzyusko/crazy-rabbit/blob/master/resources/demo.gif?raw=true">
 
-## Setup
-enabling RAM bundle format for native optimizations and so on...
 
-## Usage
+> This example provide only approximate difference between the same application version (running on the same device). Your benchmarks may be significantly different, since it depende only on apllication complexity (js bundle).
 
-Example with react-navigation
-
-#### Before
-
-```typescript jsx
-// navigator.ts
-import { createStackNavigator } from 'react-navigation';
-
-import DetailsScreen from './details';
-import HomeScreen from './home';
-
-export const AppNavigator = createStackNavigator(
-  {
-    'home': HomeScreen,
-    'details': DetailsScreen
-  },
-  {
-    initialRouteName: 'home'
-  }
-);
-```
-
-#### After
-
-```typescript jsx
-// navigator.ts
-import { createStackNavigator } from 'react-navigation';
-import { register } from 'react-native-bundle-splitter';
-
-export const AppNavigator = createStackNavigator(
-  {
-    'home': register({ name: 'home', require: () => require('./home') }),
-    'details': register({ name: 'details', require: () => require('./details') })
-  },
-  {
-    initialRouteName: 'home'
-  }
-);
-
-```
-## API
-
-- register(component: PreLoadable): ReactComponent
-- preload(componentName: string): Promise<void>
-- use(componentName: string): ReactComponent
-- isCached(componentName: string): boolean
+## Quick Links
+- [Documentation](https://kirillzyusko.github.io/react-native-bundle-splitter-docs/)
+- [Contributing]()
