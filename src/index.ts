@@ -9,8 +9,11 @@ const defaultPreLoadable: EnhancedPreLoadable = {
     extract: 'default',
 };
 
+let i = 0;
+
 export const register = (component: PreLoadable) => {
     const enhancedComponent: Component = {
+        name: `Component${i++}`,
         ...defaultPreLoadable,
         ...component
     };

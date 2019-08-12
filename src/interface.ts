@@ -1,7 +1,7 @@
 import React from 'react';
 
 export type PreLoadable = {
-    name: string;
+    name?: string;
     require: () => ({});
     // priority: number;
     group?: string;
@@ -14,4 +14,4 @@ export type EnhancedPreLoadable = {
     extract: string,
 };
 
-export type Component = PreLoadable & EnhancedPreLoadable;
+export type Component = PreLoadable & EnhancedPreLoadable & { name: string };
