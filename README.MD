@@ -7,10 +7,10 @@ Decrease your time start up and RAM memory consumption via using this library.
 
 ## Demonstration
 
-<img src="https://github.com/kirillzyusko/crazy-rabbit/blob/master/resources/demo.gif?raw=true">
+<img src="./docs/images/demo.gif?raw=true">
 
 
-> This example provide only approximate difference between the same application version (running on the same device). Your benchmarks may be significantly different, since it depende only on apllication complexity (js bundle).
+> This example provide only approximate difference between the same application version (running on the same device). Your benchmarks may be significantly different, since it depends only on application complexity (js bundle size).
 
 ## Quick Links
 - [Documentation](https://kirillzyusko.github.io/react-native-bundle-splitter-docs/)

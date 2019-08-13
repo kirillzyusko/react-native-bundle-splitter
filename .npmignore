@@ -6,6 +6,7 @@
 # user
 .gitignore
 tsconfig.json
+docs
 src
 .gitignore
 package-lock.json

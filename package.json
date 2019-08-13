@@ -1,12 +1,12 @@
 {
   "name": "react-native-bundle-splitter",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "repository": "https://github.com/kirillzyusko/react-native-bundle-splitter",
   "homepage": "https://kirillzyusko.github.io/react-native-bundle-splitter-docs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "minify": "jsmin -o dist/index.min.js dist/index.js",
+    "minify": "jsmin -o dist/index.js dist/index.js",
     "build": "tsc && npm run minify"
   },
   "devDependencies": {
@@ -29,6 +29,8 @@
     "require",
     "RAM",
     "RAM-bundles",
-    "js-bundle"
+    "js-bundle",
+    "lazy",
+    "loading"
   ]
 }
