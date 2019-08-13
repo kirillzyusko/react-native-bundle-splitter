@@ -7,6 +7,7 @@
   "license": "BSD-2-Clause",
   "types": "dist/index.d.ts",
   "scripts": {
+    "prepublish": "tsc",
     "minify": "jsmin -o dist/index.js dist/index.js",
     "build": "tsc"
   },

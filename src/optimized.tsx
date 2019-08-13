@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import * as React from 'react';
 import { getComponent, isCached } from './map';
 import { mapLoadable } from './bundler';
 
@@ -8,8 +8,8 @@ type State = {
 };
 
 const optimized = (screenName: string): any => {
-  class OptimizedComponent extends Component<Props, State> {
-    component: ReactNode = null;
+  class OptimizedComponent extends React.Component<Props, State> {
+    component: React.ReactNode = null;
     placeholder: React.Component | null = mapLoadable[screenName].placeholder;
 
     constructor(props: Props) {
