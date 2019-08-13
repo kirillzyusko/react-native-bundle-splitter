@@ -11,7 +11,7 @@ const defaultPreLoadable: EnhancedPreLoadable = {
 
 let i = 0;
 
-export const register = (component: PreLoadable) => {
+const register = (component: PreLoadable) => {
     const enhancedComponent: Component = {
         name: `Component${i++}`,
         ...defaultPreLoadable,
@@ -28,7 +28,7 @@ export const register = (component: PreLoadable) => {
     return optimized(name);
 };
 
-const component = (name: string) => new Promise((resolve, reject) => {
+const component = (name: string) => new Promise((resolve: Function, reject: Function) => {
     try {
         if (isCached(name)) {
             resolve();
@@ -47,11 +47,14 @@ const group = (name: string) => {
     return Promise.all(components.map((name) => component(name)))
 };
 
-export const preload = () => ({
+const preload = () => ({
     component,
     group
 });
 
+// API
 export {
+    register,
+    preload,
     isCached
 }

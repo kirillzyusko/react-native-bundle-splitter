@@ -1,4 +1,3 @@
-// @ts-ignore
 import React, { Component, ReactNode } from 'react';
 import { getComponent, isCached } from './map';
 import { mapLoadable } from './bundler';
@@ -8,11 +7,10 @@ type State = {
   needsExpensive: boolean;
 };
 
-// @ts-ignore
-const optimized = (screenName: string) => {
+const optimized = (screenName: string): any => {
   class OptimizedComponent extends Component<Props, State> {
     component: ReactNode = null;
-    placeholder: ReactNode = mapLoadable[screenName].placeholder;
+    placeholder: React.Component | null = mapLoadable[screenName].placeholder;
 
     constructor(props: Props) {
       super(props);
@@ -23,7 +21,6 @@ const optimized = (screenName: string) => {
         this.component = data.component;
       }
 
-      // @ts-ignore
       this.state = {
         needsExpensive: cached
       };
@@ -34,7 +31,6 @@ const optimized = (screenName: string) => {
         const data = getComponent(screenName);
         this.component = data.component;
 
-        // @ts-ignore
         this.setState(() => ({
             needsExpensive: true,
         }));
@@ -44,6 +40,7 @@ const optimized = (screenName: string) => {
     render() {
       const Component = this.component;
       const Placeholder = this.placeholder;
+      // @ts-ignore
       const PlaceholderComponent = Placeholder ? <Placeholder /> : Placeholder;
 
       // @ts-ignore

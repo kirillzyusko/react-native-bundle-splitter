@@ -1,3 +1,6 @@
+// quick and dirty
+declare var require: any;
+
 export const investigate = () => {
     const modules = require.getModules();
     const moduleIds = Object.keys(modules);
