@@ -1,21 +1,17 @@
 {
   "name": "react-native-bundle-splitter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": "https://github.com/kirillzyusko/react-native-bundle-splitter",
   "homepage": "https://kirillzyusko.github.io/react-native-bundle-splitter-docs",
   "main": "dist/index.js",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "tsc",
-    "minify": "jsmin -o dist/index.js dist/index.js",
     "build": "tsc"
   },
   "devDependencies": {
-    "jsmin": "^1.0.1"
-  },
-  "dependencies": {
-    "@types/react": "^16.9.1"
+    "@types/react": "^16.6.1"
   },
   "peerDependencies": {
     "react": "^16.6.1",
@@ -27,6 +23,9 @@
     "bundles",
     "bundle-splitter",
     "bundle-splitting",
+    "separate",
+    "separator",
+    "split",
     "splitter",
     "splitting",
     "inline",

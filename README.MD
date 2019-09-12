@@ -1,7 +1,6 @@
 # React Native Bundle Splitter
 
-[![NPM version](https://badge.fury.io/js/react-native-bundle-splitter.svg)](http://badge.fury.io/js/react-native-bundle-splitter)
-![npm](https://img.shields.io/npm/dw/react-native-bundle-splitter.svg)
+[![npm version](https://badge.fury.io/js/react-native-bundle-splitter.svg)](http://badge.fury.io/js/react-native-bundle-splitter) ![npm](https://img.shields.io/npm/dw/react-native-bundle-splitter.svg)
 
 Decrease your time start up and RAM memory consumption via using this library.
 
