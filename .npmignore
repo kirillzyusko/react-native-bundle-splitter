@@ -8,7 +8,7 @@
 tsconfig.json
 docs
 src
-.gitignore
+ROADMAP.MD
 package-lock.json
 node_modules
 

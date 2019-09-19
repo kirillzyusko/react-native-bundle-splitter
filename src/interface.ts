@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export type PreLoadable = {
     name?: string;
@@ -9,7 +9,7 @@ export type PreLoadable = {
 
 export type EnhancedPreLoadable = {
     cached: boolean;
-    placeholder: React.Component | null,
+    placeholder: React.ElementType | null,
     extract: string,
 };
 

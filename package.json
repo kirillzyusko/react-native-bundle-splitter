@@ -1,6 +1,11 @@
 {
   "name": "react-native-bundle-splitter",
-  "version": "1.0.3",
+  "author": {
+    "name": "Kiryl Ziusko",
+    "email": "zyusko.kirik@gmail.com",
+    "url": "https://github.com/kirillzyusko"
+  },
+  "version": "1.0.4",
   "description": "Decrease your start up time and RAM memory consumption by an application via splitting JS bundle by components and navigation routes",
   "repository": "https://github.com/kirillzyusko/react-native-bundle-splitter",
   "homepage": "https://kirillzyusko.github.io/react-native-bundle-splitter-docs",
@@ -8,22 +13,22 @@
   "license": "MIT",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsc",
     "build": "tsc"
   },
   "devDependencies": {
-    "@types/react": "^16.6.1"
+    "@types/react": "^16.6.1",
+    "typescript": "3.6.3"
   },
   "peerDependencies": {
     "react": "^16.6.1",
     "react-native": "^0.59.1"
   },
   "keywords": [
+    "react",
+    "native",
     "react-native",
     "bundle",
     "bundles",
-    "bundle-splitter",
-    "bundle-splitting",
     "separate",
     "separator",
     "split",
@@ -32,9 +37,11 @@
     "inline",
     "require",
     "RAM",
-    "RAM-bundles",
     "js-bundle",
     "lazy",
-    "loading"
+    "loading",
+    "loadable",
+    "react-native-loadable",
+    "unbundle"
   ]
 }
