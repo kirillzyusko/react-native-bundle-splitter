@@ -9,7 +9,6 @@ tsconfig.json
 docs
 src
 ROADMAP.MD
-package-lock.json
 node_modules
 
 # User-specific stuff
