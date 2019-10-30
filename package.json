@@ -1,10 +1,6 @@
 {
   "name": "react-native-bundle-splitter",
-  "author": {
-    "name": "Kiryl Ziusko",
-    "email": "zyusko.kirik@gmail.com",
-    "url": "https://github.com/kirillzyusko"
-  },
+  "author": "Kiryl Ziusko",
   "version": "1.0.4",
   "description": "Decrease your start up time and RAM memory consumption by an application via splitting JS bundle by components and navigation routes",
   "repository": "https://github.com/kirillzyusko/react-native-bundle-splitter",

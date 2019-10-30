@@ -47,10 +47,12 @@ const group = (name: string) => {
     return Promise.all(components.map((name) => component(name)))
 };
 
-const preload = () => ({
+const preloadAPI = {
     component,
     group
-});
+};
+
+const preload = () => preloadAPI;
 
 // API
 export {
