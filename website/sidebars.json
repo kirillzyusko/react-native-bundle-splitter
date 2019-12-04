@@ -1,0 +1,22 @@
+{
+  "docs": {
+    "Fundamentals": [
+      "getting-started",
+      "enabling-ram-bundle",
+      "basic-usage"
+    ],
+    "Guides": [
+      "navigation",
+      "static-options",
+      "async-loading",
+      "metro"
+    ],
+    "Recipes": [
+      "bundle-visualizer",
+      "capturing-startup-time"
+    ]
+  },
+  "api": {
+    "API Reference": ["api", "register", "preload", "is-cached"]
+  }
+}
