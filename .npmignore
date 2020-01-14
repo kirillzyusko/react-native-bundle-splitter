@@ -9,6 +9,7 @@ tsconfig.json
 docs
 src
 ROADMAP.MD
+CONTRIBUTING.MD
 node_modules
 
 # User-specific stuff
