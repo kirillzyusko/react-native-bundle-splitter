@@ -47,8 +47,8 @@ import { preload } from 'react-native-bundle-splitter';
 // ...
 doLogin = async () => {
   const [{ status }] = await Promise.all([
-    preload().component('Dashboard'),
-    doLoginRequest()
+    doLoginRequest(),
+    preload().component('Dashboard')
   ]);
   if (status === REGISTERED) {
     this.props.navigation.navigate('Dashboard');

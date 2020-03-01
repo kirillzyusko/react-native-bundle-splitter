@@ -38,7 +38,7 @@ react-native start
 ```bash
 yarn run bundle:analysis
 # or with npm
-npm run bundle:analysis
+# npm run bundle:analysis
 ```
 
 You will see something like this:

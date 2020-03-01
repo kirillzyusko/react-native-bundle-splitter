@@ -7,6 +7,11 @@ sidebar_label: Getting started
 
 Splitting your bundle into small pieces allows you reduce size of main bundle, which is loaded on application startup. It means, that you can load only necessary things, such as login pages, which user inevitably will see if open an application. And only "necessary" things will be in main bundle. Thus, this means that **the time of initial launch of the application will be minimized** and **memory consumption will be decreased**, since often in applications is a lot of code (components and screens) that the user may simply not see.
 
+<p style="text-align:center">
+ <img src="./assets/bundle-splitting.png"></img>
+ <i>On green part of this picture, we can see that all components/screens are divided into different groups. It allows you to load the application much faster, because instead of loading the entire bundle (red picture), you can load only the parts that we need.</i>
+</p>
+
 ## Features
 This library is add-on on react-native API. But this library has some features, and here is list of them:
 - **Enhanced cache management**. This library provide a way for caching yours components. This mechanism allows you to improve performance of your application and help to avoid unnecessary reloading yours components, which were already loaded.

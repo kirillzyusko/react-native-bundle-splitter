@@ -48,7 +48,7 @@ In order to see the difference between two versions of an application (with usag
 
 > Note: For capturing the real metrics you should kill your application after every running.
 
-> Note: for a more revealing result you should try to capture results several (I'd recommend at least five). In this case you can see the average startup time.
+> Note: for a more revealing result you should try to capture results several (I'd recommend at least five) times. In this case you can see the average startup time.
 
 ## Expected results
 

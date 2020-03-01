@@ -22,10 +22,16 @@ class HomeScreen extends React.Component {
         <Text>Home Screen</Text>
         <Button
           title="Go to Details"
-          onPress={() => this.props.navigation.navigate('Details')}
+          onPress={this.goToDetails}
         />
       </View>
     );
+  }
+  
+  private goToDetails = () => {
+    // call specific function to perform navigation
+    // in case of `react-navigation`: this.props.navigation.navigate('Details')
+    // see routes definition below for each library
   }
 }
 ```
@@ -41,12 +47,18 @@ class DetailsScreen extends React.Component {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Details Screen</Text>
         <Button
-          title="Go to Details... again"
-          onPress={() => this.props.navigation.navigate('Home')}
+          title="Go to Home... again"
+          onPress={this.goToHome}
         />
       </View>
     );
   }
+  
+   private goToHome = () => {
+     // call specific function to perform navigation
+     // in case of `react-navigation`: this.props.navigation.navigate('Home')
+     // see routes definition below for each library
+   }
 }
 ```
 
@@ -112,3 +124,34 @@ export const AppNavigator = createStackNavigator(
 ```
 
 ## React Native Navigation Integration
+
+Similarly to `react-navigation` you need only change declaration of your routes - just wrap all screens, that you want to postpone for loading in `register` function.
+
+### Before
+
+```typescript
+import { Navigation } from 'react-native-navigation';
+
+import DetailsScreen from './details';
+import HomeScreen from './home';
+
+Navigation.registerComponent('Home', () => HomeScreen);
+Navigation.registerComponent('Details', () => DetailsScreen);
+```
+
+### After
+
+```typescript
+import { Navigation } from 'react-native-navigation';
+import { register } from 'react-native-bundle-splitter';
+
+const DetailsScreen = register({ require: () => require('./details') });
+const HomeScreen = register({ require: () => require('./home') });
+
+Navigation.registerComponent('Home', () => HomeScreen);
+Navigation.registerComponent('Details', () => DetailsScreen);
+```
+
+## Summary
+
+As you saw in both cases (integration with `react-navigation` and `react-native-navigation`) you just need to wrap your screens, that you want to postpone for loading, in `register` function.
