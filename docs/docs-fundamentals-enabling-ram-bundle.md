@@ -15,7 +15,7 @@ You can read [more](https://facebook.github.io/metro/docs/en/bundling) about thi
 
 ### Context and motivation
 
-React Native is a still JS application. In the browser all your JavaScript and modules have to be bundled (combined, minified, and maybe even uglified) before deploying. As a result, you drastically reduce the number of files (usually down to one) along with the total size of the code you’re serving by removing all information not necessary for production, i.e., mercilessly rewriting function and variables names, deleting code comments, and so on. Bundlers also can produce additional debug information called “source maps” that help map positions in the minified code to original positions in the unminified sources. This is extremely useful when we talk about error tracking and good debugging experience (and this is exactly what we’re talking about here!), and of course, Sentry has source map support.
+React Native is a still JS application. In the browser all your JavaScript and modules have to be bundled (combined, minified, and maybe even uglified) before deploying. As a result, you drastically reduce the number of files (usually down to one) along with the total size of the code you’re serving by removing all information not necessary for production, i.e., mercilessly rewriting function and variables names, deleting code comments, and so on.
 
 The whole procedure stays pretty much the same when you’re developing a React Native app. It’s still (React-flavored) JavaScript you write there, right?
 
@@ -37,7 +37,7 @@ The official way to bundle your React Native apps at the moment is using Metro B
 
 For enabling this format in your application you need to do pretty simple steps for each platform.
 
-> *Note:* Nevertheless enabling highly recommended for both platform, you can activate it only for one.
+> *Note:* Although enabling RAM Bundle format is recommended for both platforms, you can only enable it for one if necessary.
 
 ### Android
 
