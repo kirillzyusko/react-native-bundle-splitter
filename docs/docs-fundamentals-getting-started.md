@@ -9,7 +9,7 @@ Splitting your bundle into small pieces allows you reduce size of main bundle, w
 
 <p style="text-align:center">
  <img src="./assets/bundle-splitting.png"></img>
- <i>On green part of this picture, we can see that all components/screens are divided into different groups. It allows you to load the application much faster, because instead of loading the entire bundle (red picture), you can load only the parts that we need.</i>
+ <i>On green part of this picture, you can see that all components/screens are divided into different groups. It allows you to load the application much faster, because instead of loading the entire bundle (red picture), you can load only the parts that you need.</i>
 </p>
 
 ## Features
