@@ -43,14 +43,17 @@ class Footer extends React.Component {
             <a href={this.docUrl('navigation', this.props.language)}>
               Guides
             </a>
+            <a href={this.docUrl('bundle-visualizer', this.props.language)}>
+              Recipes
+            </a>
             <a href={this.docUrl('api', this.props.language)}>
               API Reference
             </a>
           </div>
           <div>
             <h5>Resource</h5>
-            <a href={this.pageUrl('#', this.props.language)}>
-              Link #1
+            <a href='https://reactnative.dev/docs/performance#ram-bundles--inline-requires'>
+              RAM bundles
             </a>
           </div>
           <div>
