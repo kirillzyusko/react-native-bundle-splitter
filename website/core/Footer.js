@@ -52,7 +52,7 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>Resource</h5>
-            <a href='https://reactnative.dev/docs/performance#ram-bundles--inline-requires'>
+            <a href='https://reactnative.dev/docs/ram-bundles-inline-requires'>
               RAM bundles
             </a>
           </div>

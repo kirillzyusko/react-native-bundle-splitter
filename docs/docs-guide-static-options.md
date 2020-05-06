@@ -6,8 +6,8 @@ sidebar_label: Static options
 
 Sometimes you need to specify `static` members for your Presentation class.
 
-```ecmascript 6
-class HomeScreen extends React.Component {
+```javascript
+class HomeScreen extends React.PureComponent {
   static navigationOptions = {
     title: 'Home',
   };
@@ -28,6 +28,24 @@ export default register({
     static: { 
         navigationOptions: { 
             title: 'Home' 
+        } 
+    } 
+});
+```
+
+Of course, you can pass not only plain objects, but functions as well:
+
+```ecmascript 6
+import { register } from 'react-native-bundle-splitter';
+
+export default register({ 
+    require: () => require('./View'), 
+    static: { 
+        navigationOptions: ({ navigation }) => { 
+            // all code from your component
+            return {
+                title: 'Home' 
+            }
         } 
     } 
 });

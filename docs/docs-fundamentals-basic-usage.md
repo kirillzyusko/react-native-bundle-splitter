@@ -33,7 +33,7 @@ export default register({ require: () => require('./View') });
 
 That's all! You can reload your application to see the results and guarantee this changes will not break anything.
 
-> *Note:* Please, be sure, that you have such `index.ts` file. This library works only in case if you don't have any `import` statements which refers to your file.
+> *Note:* Please, be sure, that you have such `index.ts` file. This library works only in case if you don't have any `import` statements which refers to your file. In other words: be sure that you do NOT import this file (`View`) from anywhere in your code.
 
 To assure, that you are doing everything in correct way this library provides a way for checking the performance.
 

@@ -155,3 +155,5 @@ Navigation.registerComponent('Details', () => DetailsScreen);
 ## Summary
 
 As you saw in both cases (integration with `react-navigation` and `react-native-navigation`) you just need to wrap your screens, that you want to postpone for loading, in `register` function.
+
+> As you can see in this section we used `register` function directly in the navigation declaration, unlike [Basic usage](docs-fundamentals-basic-usage.md), where we used `register` in the `index` file. You can choose which way is more preferable for you: use this HOC in the routes declaration or in `index` files. No need to use it twice.
