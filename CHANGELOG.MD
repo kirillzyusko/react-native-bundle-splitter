@@ -1,5 +1,7 @@
 # Changelog
 
+# 1.0.8
+
 ## Improved
 
 - types compatibility improved
