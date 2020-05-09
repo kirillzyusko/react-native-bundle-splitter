@@ -10,8 +10,8 @@ type State = {
 
 const optimized = (screenName: string): any => {
   class OptimizedComponent extends React.PureComponent<Props, State> {
-    component: React.ElementType | null = null;
-    placeholder: React.ElementType | null = mapLoadable[screenName].placeholder;
+    private component: React.ElementType | null = null;
+    private placeholder: React.ElementType | null = mapLoadable[screenName].placeholder;
 
     constructor(props: Props) {
       super(props);
@@ -27,7 +27,7 @@ const optimized = (screenName: string): any => {
       };
     }
 
-    componentDidMount() {
+    public componentDidMount(): void {
       if (this.component === null) {
         const { component } = getComponent(screenName);
         this.component = component;
@@ -36,13 +36,13 @@ const optimized = (screenName: string): any => {
       }
     }
 
-    render() {
+    public render(): React.ReactNode {
       const BundleComponent = this.component;
       const Placeholder = this.placeholder;
       const PlaceholderComponent = Placeholder ? <Placeholder /> : Placeholder;
 
       return this.state.needsExpensive && BundleComponent ?
-          <BundleComponent {...this.props} /> : PlaceholderComponent;
+        <BundleComponent {...this.props} /> : PlaceholderComponent;
     }
   }
 
