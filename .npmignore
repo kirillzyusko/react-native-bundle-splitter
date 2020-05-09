@@ -13,6 +13,9 @@ CONTRIBUTING.MD
 CHANGELOG.MD
 node_modules
 
+# from docusaurus
+website
+
 # User-specific stuff
 .idea
 .idea/**/workspace.xml
