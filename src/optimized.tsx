@@ -9,7 +9,7 @@ type State = {
 };
 
 const optimized = (screenName: string): any => {
-  class OptimizedComponent extends React.Component<Props, State> {
+  class OptimizedComponent extends React.PureComponent<Props, State> {
     component: React.ElementType | null = null;
     placeholder: React.ElementType | null = mapLoadable[screenName].placeholder;
 
