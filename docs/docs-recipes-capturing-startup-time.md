@@ -4,6 +4,8 @@ title: Capturing startup time
 sidebar_label: Capturing startup time
 ---
 
+Флиппер
+
 The main purpose of this package is splitting bundle by two parts: the first, relatively small which you can load at the start of your application, and the second, where you will keep the rest part of your application. Such way allows significantly decrease initial **startup time** and practically reduce it to the same time as in an empty application created via `react-native init` command. Let's look how we can capture the startup time of an application and understand, how much did you win with the usage of this library.
 
 ## Library that you need to install

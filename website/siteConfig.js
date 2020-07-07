@@ -73,7 +73,7 @@ const siteConfig = {
   onPageNav: 'separate',
   // No .html extensions for paths.
   cleanUrl: true,
-  gaTrackingId: 'UA-40105113-3',
+  // gaTrackingId: 'UA-40105113-3',
 
   // Open Graph and Twitter card images.
   ogImage: 'img/undraw_online.svg',

@@ -4,6 +4,8 @@ title: Bundle visualizer
 sidebar_label: Bundle visualizer
 ---
 
+!!! Расписать про анализ бандла эту главу, и показать, что можно и packages тоже анализировать, и *.lock файлы и прочее
+
 More often you need to understand how much space you can save using this library. The simplest way for performing this - compare files size. But it's a pretty routine task. So you can save a little bit time and get great bundle analytics using such tools as [visualize-bundle](https://github.com/JonnyBurger/npx-visualize-bundle) and [react-native-bundle-visualizer](https://github.com/IjzerenHein/react-native-bundle-visualizer)
 
 ## Visualization of the bundle
