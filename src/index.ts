@@ -11,7 +11,7 @@ const defaultPreLoadable: EnhancedPreLoadable = {
 
 let i = 0;
 
-const register = (component: PreLoadable) => {
+const register = (component: PreLoadable & Partial<EnhancedPreLoadable>) => {
     const enhancedComponent: Component = {
         name: `Component${i++}`,
         ...defaultPreLoadable,
