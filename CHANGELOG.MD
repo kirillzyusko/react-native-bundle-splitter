@@ -1,5 +1,11 @@
 # Changelog
 
+# 1.0.9
+
+## Fixed
+
+- extending types for `register` method ([PR](https://github.com/kirillzyusko/react-native-bundle-splitter/pull/6))
+
 # 1.0.8
 
 ## Improved
