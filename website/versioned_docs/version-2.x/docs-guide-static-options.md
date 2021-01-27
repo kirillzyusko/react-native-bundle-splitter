@@ -1,7 +1,8 @@
 ---
-id: static-options
+id: version-2.x-static-options
 title: Static options
 sidebar_label: Static options
+original_id: static-options
 ---
 
 Sometimes you need to specify `static` members for your Presentation class.

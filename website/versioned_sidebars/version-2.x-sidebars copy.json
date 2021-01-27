@@ -1,0 +1,27 @@
+{
+  "version-2.x-docs": {
+    "Fundamentals": [
+      "version-2.x-getting-started",
+      "version-2.x-enabling-ram-bundle",
+      "version-2.x-basic-usage"
+    ],
+    "Guides": [
+      "version-2.x-navigation",
+      "version-2.x-static-options",
+      "version-2.x-async-loading",
+      "version-2.x-metro"
+    ],
+    "Recipes": [
+      "version-2.x-bundle-visualizer",
+      "version-2.x-capturing-startup-time"
+    ]
+  },
+  "version-2.x-api": {
+    "API Reference": [
+      "version-2.x-api",
+      "version-2.x-register",
+      "version-2.x-preload",
+      "version-2.x-is-cached"
+    ]
+  }
+}
