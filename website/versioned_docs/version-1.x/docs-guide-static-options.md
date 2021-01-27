@@ -56,7 +56,7 @@ And `navigationOptions` already will not use from your presentational class, so 
 
 ```ecmascript 6
 class HomeScreen extends React.Component {
-  // navigationOptions are removed - now tey are in register function
+  // navigationOptions are removed - now they are in register function
 
   /* render function, etc */
 }

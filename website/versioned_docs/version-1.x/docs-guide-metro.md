@@ -7,8 +7,6 @@ original_id: metro
 
 ## Initial Configuration
 
-расписать, зачем это вообще нужно
-
 In order to see which files should be loaded on initial start of app you can use helper utility (use this code in `App.js`):
 
 ```diff

@@ -5,8 +5,6 @@ sidebar_label: Async loading
 original_id: async-loading
 ---
 
-!!!Live examples!!!
-
 If you did not load all the screens at the stage of opening the application, then, of course, you need to load them after (for example, if the user logs in and you need to redirect him to another screen, which has not yet been loaded).
 
 This library will load it automatically and cache, if it's needed. However, it can lead to application freezes or the appearance of “white blinks”.
@@ -126,21 +124,3 @@ export default register({ require: () => require('./View'), group: 'LOGGED' });
 ```
 
 So, what are you doing here? Instead of specifying `name` and calling `preload().component()` you specify `group` for screens, and call `preload().group()`.
-
-## Live example
-
-### Without pre-loading
-
-Click on "Go to details". You will see how app is freezing. However after routes get loaded, they will be cached and navigation to them will be instant (click on "Back" icon and then again on "Go to details". Have you see the freeze again? No.)
-
-<div data-snack-id="@kiryl.ziusko/2b3c05" data-snack-platform="web" data-snack-preview="true" data-snack-theme="light" style="overflow:hidden;background:#fafafa;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:505px;width:100%"></div><script async src="https://snack.expo.io/embed.js"></script>
-
-### With pre-loaded routes
-
-TODO: experiment with placeholder in 1.1.0 and show how preload works
-
-## Summary
-
-Эта библиотека не делает никакой магии. Она лишь позволяет время, затрачиваемое на загрузку приложения, перенести в рантайм.
-
-Соответственно, время, затрачиваемое на загрузку оставшейся части бандла, можно скомбинировать с другой асинхронной операцией и распараллетить их, таким образом всё-таки добиться уменьшеиня времени...

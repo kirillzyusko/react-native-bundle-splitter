@@ -9,7 +9,7 @@ original_id: getting-started
 Splitting your bundle into small pieces allows you reduce size of main bundle, which is loaded on application startup. It means, that you can load only necessary things, such as login pages, which user inevitably will see if open an application. And only "necessary" things will be in main bundle. Thus, this means that **the time of initial launch of the application will be minimized** and **memory consumption will be decreased**, since often in applications is a lot of code (components and screens) that the user may simply not see.
 
 <p style="text-align:center">
- <img src="./assets/bundle-splitting.png"></img>
+ <img src="./../assets/bundle-splitting.png"></img>
  <i>On green part of this picture, you can see that all components/screens are divided into different groups. It allows you to load the application much faster, because instead of loading the entire bundle (red picture), you can load only the parts that you need.</i>
 </p>
 

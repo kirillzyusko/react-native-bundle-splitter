@@ -16,6 +16,7 @@ const siteConfig = {
   tagline: 'Split up your js-bundle easily and in elegant way',
   url: 'https://kirillzyusko.github.io', // Your website URL
   baseUrl: '/react-native-bundle-splitter/', // Base URL for your project */
+  docsUrl: 'docs',
   // Used for publishing and more
   projectName: 'react-native-bundle-splitter',
   organizationName: 'kirillzyusko',

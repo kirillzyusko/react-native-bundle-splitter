@@ -5,8 +5,6 @@ sidebar_label: Navigation libraries integration
 original_id: navigation
 ---
 
-Пятая навигация?
-
 As was mentioned in the description of this library - you can easily split your bundle by navigation routes. And this library may be easily integrated with almost all navigation solutions. in this chapter we will have a look on the most popular solutions for navigation: [react-navigation](https://reactnavigation.org/) and [react-native-navigation](https://wix.github.io/react-native-navigation/#/)
 
 Let's consider basic example with two screens. Let's assume we have the next application structure:
@@ -125,10 +123,6 @@ export const AppNavigator = createStackNavigator(
 );
 
 ```
-
-### Expo live example
-
-<div data-snack-id="@kiryl.ziusko/30c2ab" data-snack-platform="web" data-snack-preview="true" data-snack-theme="light" style="overflow:hidden;background:#fafafa;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:505px;width:100%"></div><script async src="https://snack.expo.io/embed.js"></script>
 
 ## React Native Navigation Integration
 
