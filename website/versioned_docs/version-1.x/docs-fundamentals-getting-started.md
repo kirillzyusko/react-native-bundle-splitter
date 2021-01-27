@@ -29,6 +29,6 @@ yarn add react-native-bundle-splitter
 # npm install react-native-bundle-splitter --save
 ```
 
-This module does not use any native (platform) dependencies and does not need to be linked. So installation process basically is finished. But you also need to enable `RAM bundles` feature in your application. To see how to do it, please read [the guide](docs-fundamentals-enabling-ram-bundle.md).
+This module does not use any native (platform) dependencies and does not need to be linked. So installation process basically is finished. But you also need to enable `RAM bundles` feature in your application. To see how to do it, please read [the guide](./enabling-ram-bundle).
 
 > *Note*: you need to use react-native 0.59 or higher, since feature with inline requires is available out-of-box only from this version.
