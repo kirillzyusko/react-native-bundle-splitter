@@ -5,6 +5,6 @@ sidebar_label: API
 original_id: api
 ---
 
-- [register](api-register.md)
-- [preload](api-preload.md)
-- [isCached](api-is-cached.md)
+- [register](./register)
+- [preload](./preload)
+- [isCached](./is-cached)
