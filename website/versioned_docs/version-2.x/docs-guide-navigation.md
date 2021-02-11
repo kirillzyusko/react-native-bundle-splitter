@@ -114,8 +114,8 @@ import { register } from 'react-native-bundle-splitter';
 
 export const AppNavigator = createStackNavigator(
   {
-    'Home': register({ require: () => require('./home') }),
-    'Details': register({ require: () => require('./details') })
+    'Home': register({ loader: () => import('./home') }),
+    'Details': register({ loader: () => import('./details') })
   },
   {
     initialRouteName: 'Home'
@@ -146,8 +146,8 @@ Navigation.registerComponent('Details', () => DetailsScreen);
 import { Navigation } from 'react-native-navigation';
 import { register } from 'react-native-bundle-splitter';
 
-const DetailsScreen = register({ require: () => require('./details') });
-const HomeScreen = register({ require: () => require('./home') });
+const DetailsScreen = register({ loader: () => import('./details') });
+const HomeScreen = register({ loader: () => import('./home') });
 
 Navigation.registerComponent('Home', () => HomeScreen);
 Navigation.registerComponent('Details', () => DetailsScreen);

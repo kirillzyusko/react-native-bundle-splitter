@@ -72,7 +72,7 @@ In this case you can be sure, that your component will be loaded before usage an
 // dashboard/index.ts
 import { register } from 'react-native-bundle-splitter';
 
-export default register({ require: () => require('./View'), name: 'Dashboard' });
+export default register({ loader: () => import('./View'), name: 'Dashboard' });
 ```
 
 ## Group of screens
@@ -106,21 +106,21 @@ And for screens:
 // dashboard/index.ts
 import { register } from 'react-native-bundle-splitter';
 
-export default register({ require: () => require('./View'), group: 'LOGGED' });
+export default register({ loader: () => import('./View'), group: 'LOGGED' });
 ```
 
 ```js
 // settings/index.ts
 import { register } from 'react-native-bundle-splitter';
 
-export default register({ require: () => require('./View'), group: 'LOGGED' });
+export default register({ loader: () => import('./View'), group: 'LOGGED' });
 ```
 
 ```js
 // profile/index.ts
 import { register } from 'react-native-bundle-splitter';
 
-export default register({ require: () => require('./View'), group: 'LOGGED' });
+export default register({ loader: () => import('./View'), group: 'LOGGED' });
 ```
 
 So, what are you doing here? Instead of specifying `name` and calling `preload().component()` you specify `group` for screens, and call `preload().group()`.

@@ -29,7 +29,7 @@ You can easily rewrite it with this library!
 ```js
 import { register } from 'react-native-bundle-splitter';
 
-export default register({ require: () => require('./View') });
+export default register({ loader: () => import('./View') });
 ```
 
 That's all! You can reload your application to see the results and guarantee this changes will not break anything.
