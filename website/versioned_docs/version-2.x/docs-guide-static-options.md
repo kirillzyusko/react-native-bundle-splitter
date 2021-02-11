@@ -52,7 +52,7 @@ export default register({
 });
 ```
 
-And `navigationOptions` already will not use from your presentational class, so you can remove it.
+And `navigationOptions` already will not be used from your presentational class, so you can remove it.
 
 ```ecmascript 6
 class HomeScreen extends React.Component {
