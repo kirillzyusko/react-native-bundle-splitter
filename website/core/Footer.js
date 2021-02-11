@@ -12,8 +12,7 @@ class Footer extends React.Component {
     const baseUrl = this.props.config.baseUrl;
     const docsUrl = this.props.config.docsUrl;
     const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
-    const langPart = `${language ? `${language}/` : ''}`;
-    return `${baseUrl}${docsPart}${langPart}${doc}`;
+    return `${baseUrl}${docsPart}${doc}`;
   }
 
   pageUrl(doc, language) {
@@ -43,7 +42,7 @@ class Footer extends React.Component {
             <a href={this.docUrl('navigation', this.props.language)}>
               Guides
             </a>
-            <a href={this.docUrl('bundle-visualizer', this.props.language)}>
+            <a href={this.docUrl('bundle-analysis', this.props.language)}>
               Recipes
             </a>
             <a href={this.docUrl('api', this.props.language)}>
