@@ -13,4 +13,5 @@ Decrease your start up time and RAM memory consumption by an application via spl
 
 ## Quick Links
 - [Documentation](https://kirillzyusko.github.io/react-native-bundle-splitter/)
+- [Example](https://github.com/kirillzyusko/react-native-bundle-splitter-example)
 - [Contributing](https://github.com/kirillzyusko/react-native-bundle-splitter/blob/master/CONTRIBUTING.MD)
