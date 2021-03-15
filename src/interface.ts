@@ -2,9 +2,13 @@ import * as React from 'react';
 
 type ImportReturnType = {};
 
+export type RequireLoader = () => NodeRequire;
+
+export type ImportLoader = () => Promise<ImportReturnType>;
+
 type BasePreLoadable = {
-    require?: () => NodeRequire;
-    loader?: () => Promise<ImportReturnType>;
+    require?: RequireLoader;
+    loader?: ImportLoader;
     name?: string;
     group?: string;
     static?: object;
