@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 declare var require: any;
 
 export const investigate = () => {
-    if (Platform.OS === 'web' || __DEV__) {
+    if (Platform.OS === 'web' || !__DEV__) {
         // prevent crash in release and web
         // this function will not work on web and in release
         return { loaded: [], waiting: [] }
