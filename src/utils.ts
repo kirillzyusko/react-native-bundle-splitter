@@ -3,9 +3,8 @@ import { Platform } from 'react-native';
 declare var require: any;
 
 export const investigate = () => {
-    if (Platform.OS === 'web') {  // prevent crash on web and use mock data
-        // since I don't know, whether it's possible to get the data in the
-        // same way and form as on react-native side
+    if (Platform.OS === 'web' || __DEV__) { // prevent crash in release and web
+        // this function will not return on web and in release
         return { loaded: [], waiting: [] }
     }
 
