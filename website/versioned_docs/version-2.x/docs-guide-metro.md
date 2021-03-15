@@ -5,6 +5,8 @@ sidebar_label: Metro configuration updating
 original_id: metro
 ---
 
+On this stage we are gathering info about which modules will be included in "startup" bundle. And we are sending this information to metro-bundler, so this tool is aware about that.
+
 ## Initial Configuration
 
 In order to see which files should be loaded on initial start of app you can use helper utility (use this code in `App.js`):
@@ -22,12 +24,11 @@ Then grab this text and put it in a file named `packager/modules.ios.js` (if you
 Then edit your `metro.config.js` as shown below:
 
 ```js
-const modulePaths = require('./packager/modules');
 const resolve = require('path').resolve;
 const fs = require('fs');
 
 // Update the following line if the root folder of your app is somewhere else.
-const ROOT_FOLDER = resolve(__dirname, '..');
+const ROOT_FOLDER = resolve(__dirname, '.');
 
 const config = {
   transformer: {
@@ -53,8 +54,10 @@ const config = {
       };
     },
   },
-  projectRoot:ROOT_FOLDER,
+  projectRoot: ROOT_FOLDER,
 };
 
 module.exports = config;
 ```
+
+Using info from `packager` folder `metro-bundler` will be aware of the fact, which modules should be included in "startup" bundle, and which modules can de dynamically loaded during runtime of application.

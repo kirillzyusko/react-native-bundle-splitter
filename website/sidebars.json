@@ -12,7 +12,7 @@
       "metro"
     ],
     "Recipes": [
-      "bundle-visualizer",
+      "bundle-analysis",
       "capturing-startup-time"
     ]
   },

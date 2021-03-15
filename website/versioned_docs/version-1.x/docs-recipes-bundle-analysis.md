@@ -1,8 +1,8 @@
 ---
-id: version-2.x-bundle-visualizer
-title: Bundle visualizer
-sidebar_label: Bundle visualizer
-original_id: bundle-visualizer
+id: version-1.x-bundle-analysis
+title: Bundle analysis
+sidebar_label: Bundle analysis
+original_id: bundle-analysis
 ---
 
 More often you need to understand how much space you can save using this library. The simplest way for performing this - compare files size. But it's a pretty routine task. So you can save a little bit time and get great bundle analytics using such tools as [visualize-bundle](https://github.com/JonnyBurger/npx-visualize-bundle) and [react-native-bundle-visualizer](https://github.com/IjzerenHein/react-native-bundle-visualizer)
@@ -63,4 +63,4 @@ It's common tactics that you may apply in order to simplify your entry point of 
 
 ## Summary
 
-The main goal of this article is to demonstrate a way for determining the order and prioritizing thing where you should work. Via visualization of bundle you can understand, what exactly may slow down your startup of an application and understand possible way for resolving it.
+The main goal of this article is to demonstrate a way for determining the order and prioritizing things where you should work. Via visualization of bundle you can understand, what exactly may slow down your startup of an application and understand possible way for resolving it.

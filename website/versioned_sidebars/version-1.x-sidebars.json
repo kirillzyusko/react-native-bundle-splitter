@@ -12,7 +12,7 @@
       "version-1.x-metro"
     ],
     "Recipes": [
-      "version-1.x-bundle-visualizer",
+      "version-1.x-bundle-analysis",
       "version-1.x-capturing-startup-time"
     ]
   },

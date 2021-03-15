@@ -52,7 +52,7 @@ project.ext.react = [
     ...
 ```
 
-> *Note:* You can choose between formats, since Android support both format (indexed and file). But since iOS support only `indexed` format, would be reasonable to keep both platform in consistent and use `indexed` format. But if you decided for some reasons to use `file` format, you don't need to add `extraPackagerArgs: ["--indexed-ram-bundle"]` line. Bu default android uses `file` format.
+> *Note:* You can choose between formats, since Android support both format (indexed and file). But since iOS support only `indexed` format, would be reasonable to keep both platform in consistent and use `indexed` format. But if you decided for some reasons to use `file` format, you don't need to add `extraPackagerArgs: ["--indexed-ram-bundle"]` line. By default android uses `file` format.
 
 > *Note:* If you are trying to enable this feature with Hermes engine, you may faced with application crash. It's a known [issue](https://github.com/facebook/react-native/issues/25730). As a temporary solution you can don't activate this bundle format for Android, since Hermes is using similar [mechanism](https://github.com/facebook/react-native/issues/25730#issuecomment-514115115). 
 

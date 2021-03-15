@@ -29,7 +29,7 @@ After installation you need to integrate it to your application. Basically there
 - as JSX-element
 - imperative call
 
-I would **highly** recommend you to capture the startup time on application, that builded with minification and in prod mode (at least without hte usage of `dev-server`). In other case, metrics, that you captured may not reflect a real situation.
+I would **highly** recommend you to capture the startup time on application, that builded with minification and in prod mode (at least without the usage of `dev-server`). In other case, metrics, that you captured may not reflect a real situation.
 
 However in a lot of application the most common used approach is deleting any `console.log` statements in application in production mode via babel-plugin, for example. So I'd recommend you use **JSX-element** approach.
 

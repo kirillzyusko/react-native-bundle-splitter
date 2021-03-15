@@ -22,12 +22,11 @@ Then grab this text and put it in a file named `packager/modules.ios.js` (if you
 Then edit your `metro.config.js` as shown below:
 
 ```js
-const modulePaths = require('./packager/modules');
 const resolve = require('path').resolve;
 const fs = require('fs');
 
 // Update the following line if the root folder of your app is somewhere else.
-const ROOT_FOLDER = resolve(__dirname, '..');
+const ROOT_FOLDER = resolve(__dirname, '.');
 
 const config = {
   transformer: {
@@ -53,7 +52,7 @@ const config = {
       };
     },
   },
-  projectRoot:ROOT_FOLDER,
+  projectRoot: ROOT_FOLDER,
 };
 
 module.exports = config;

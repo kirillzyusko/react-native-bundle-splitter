@@ -59,16 +59,15 @@ class Footer extends React.Component {
             <h5>More</h5>
             <a href={`${this.props.config.baseUrl}blog`}>Blog</a>
             <a href={`${this.props.config.repoUrl}`}>GitHub</a>
-            <a
-              className="github-button"
-              href={this.props.config.repoUrl}
-              data-icon="octicon-star"
-              data-count-href="/facebook/docusaurus/stargazers"
-              data-show-count="true"
-              data-count-aria-label="# stargazers on GitHub"
-              aria-label="Star this project on GitHub">
-              Star
-            </a>
+            <iframe
+              src="https://ghbtns.com/github-btn.html?user=kirillzyusko&repo=react-native-bundle-splitter&type=star&count=true"
+              frameborder="0"
+              scrolling="0"
+              width="150"
+              height="20"
+              title="GitHub"
+            >
+            </iframe>
             {this.props.config.twitterUsername && (
               <div className="social">
                 <a
