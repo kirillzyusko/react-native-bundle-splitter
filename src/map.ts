@@ -6,6 +6,7 @@ const cache = {} as any;
 export const isCached = (componentName: string) => !!cache[componentName];
 
 const DEPRECATED_API_MESSAGE = "You are using a deprecated API that will be removed in a future releases. Please consider using `loader` instead of `require`";
+const ERROR_WHILE_LOADING = "An error occurred while lazy loading a component. Perhaps the path where you are trying to load the component does not exist? Stacktrace: ";
 
 // In react-native world call of `require` or `loader` will block thread (since it's sync operation)
 // As a result if screen is not loaded yet and you trigger a navigation - app will freeze for a time,
@@ -17,8 +18,10 @@ const nonBlockingLoader = (loader: RequireLoader | ImportLoader) => new Promise(
             const file = await loader();
             resolve(file);
         } catch (e) {
-            console.error("An error occurred while lazy loading a component. Perhaps the path where you are trying to load the component does not exist? Stacktrace: " + e);
-            resolve(null); // resolve it as a `null` - another error will be thrown when it will evaluate `component[rest.extract]`
+            console.error(ERROR_WHILE_LOADING + e);
+            // resolve it as a `null` - another error will be thrown
+            // when it will evaluate `component[rest.extract]`
+            resolve(null);
         }
     }, 0);
 });
