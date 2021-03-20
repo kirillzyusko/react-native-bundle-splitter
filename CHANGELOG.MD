@@ -4,7 +4,11 @@
 
 ## Breaking changes
 
-- There is no breaking changes. You can safely move to new version without any changes in code. This version has backward compatibility.
+This release contains no breaking changes, but it does include some important changes, including:
+
+- proposed to use `loader` instead of `require` (however you can still use `require` - this version has backward compatibility);
+- `investigate` returns only initially loaded modules;
+- screen gets mounted in `async` way;
 
 ## Added
 
