@@ -9,7 +9,8 @@
       "version-2.x-navigation",
       "version-2.x-static-options",
       "version-2.x-async-loading",
-      "version-2.x-metro"
+      "version-2.x-metro",
+      "version-2.x-upgrading-from-1.x"
     ],
     "Recipes": [
       "version-2.x-bundle-analysis",
