@@ -12,11 +12,14 @@ const DEPRECATED_API_MESSAGE = "You are using a deprecated API that will be remo
 // until screen is not loaded. That's why `setTimeout(..., 0)` code is used here. We simply call this
 // function in next event loop iteration. Such approach will not block transition animations.
 const nonBlockingLoader = (loader: RequireLoader | ImportLoader) => new Promise((resolve) => {
-    let file = null;
-
     setTimeout(async () => {
-        file = await loader();
-        resolve(file);
+        try {
+            const file = await loader();
+            resolve(file);
+        } catch (e) {
+            console.error("An error occurred while lazy loading a component. Perhaps the path where you are trying to load the component does not exist? Stacktrace: " + e);
+            resolve(null); // resolve it as a `null` - another error will be thrown when it will evaluate `component[rest.extract]`
+        }
     }, 0);
 });
 
