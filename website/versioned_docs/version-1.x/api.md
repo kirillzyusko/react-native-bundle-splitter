@@ -7,4 +7,4 @@ original_id: api
 
 - [register](./register)
 - [preload](./preload)
-- [isCached](./is-cached.)
+- [isCached](./is-cached)

@@ -125,18 +125,6 @@ export default register({ loader: () => import('./View'), group: 'LOGGED' });
 
 So, what are you doing here? Instead of specifying `name` and calling `preload().component()` you specify `group` for screens, and call `preload().group()`.
 
-## Live example
-
-### Without pre-loading
-
-Click on "Go to details". You will see how app is freezing. However after routes get loaded, they will be cached and navigation to them will be instant (click on "Back" icon and then again on "Go to details". Have you seen the freeze again?)
-
-<div data-snack-id="@kiryl.ziusko/2b3c05" data-snack-platform="web" data-snack-preview="true" data-snack-theme="light" style="overflow:hidden;background:#fafafa;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:505px;width:100%"></div><script async src="https://snack.expo.io/embed.js"></script>
-
-### With pre-loading
-
-### Using `placeholder` option
-
 ## Summary
 
 This library does not do any magic. It simply allows you to transfer the time (which is required to load the bundle at the start of the application) to runtime execution.

@@ -10,9 +10,9 @@ original_id: enabling-ram-bundle
 
 ### RAM Bundle format
 
-[Metro](https://facebook.github.io/metro/en/) bundler for react-native offers special format - RAM (Random Access Memory). RAM bundle is a new format of React Native application packaging that helps to optimize load times of your app. 
+[Metro](https://facebook.github.io/metro/) bundler for react-native offers special format - RAM (Random Access Memory). RAM bundle is a new format of React Native application packaging that helps to optimize load times of your app. 
 
-You can read [more](https://facebook.github.io/metro/docs/en/bundling) about this bundle format.
+You can read [more](https://facebook.github.io/metro/docs/bundling) about this bundle format.
 
 ### Context and motivation
 
