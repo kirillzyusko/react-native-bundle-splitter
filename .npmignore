@@ -10,7 +10,7 @@ docs
 src
 ROADMAP.MD
 CONTRIBUTING.MD
-CHANGELOG.MD
+CODE_OF_CONDUCT.md
 node_modules
 
 # from docusaurus

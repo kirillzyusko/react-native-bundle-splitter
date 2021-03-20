@@ -1,5 +1,29 @@
 # Changelog
 
+# 2.0.0
+
+## Breaking changes
+
+This release contains no breaking changes, but it does include some important changes, including:
+
+- proposed to use `loader` instead of `require` (however you can still use `require` - this version has backward compatibility);
+- `investigate` returns only initially loaded modules;
+- screen gets mounted in `async` way;
+
+## Added
+
+- support for `web` platform (with `react-native-web` usage);
+- support for `macOS` platform;
+- support for `windows` platform;
+
+## Improved
+
+- types compatibility;
+- internal naming convention;
+
+## Fixed
+ - `requires a peer of react-native@^0.59.1 but none is installed. You must install peer dependencies yourself.` warning;
+
 # 1.0.9
 
 ## Fixed

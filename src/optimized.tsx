@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { getComponent, isCached } from './map';
+import { getComponent, isCached, getComponentFromCache } from './map';
 import { mapLoadable } from './bundler';
 
 type Props = {};
 type State = {
-  needsExpensive: boolean;
+  isComponentAvailable: boolean;
 };
 
 const optimized = (screenName: string): any => {
@@ -18,21 +18,21 @@ const optimized = (screenName: string): any => {
       const cached = isCached(screenName);
 
       if (cached) {
-        const { component } = getComponent(screenName);
+        const { component } = getComponentFromCache(screenName);
         this.component = component;
       }
 
       this.state = {
-        needsExpensive: cached
+        isComponentAvailable: cached
       };
     }
 
-    public componentDidMount(): void {
+    public async componentDidMount(): Promise<void> {
       if (this.component === null) {
-        const { component } = getComponent(screenName);
+        const { component } = await getComponent(screenName);
         this.component = component;
 
-        this.setState({ needsExpensive: true });
+        this.setState({ isComponentAvailable: true });
       }
     }
 
@@ -41,7 +41,7 @@ const optimized = (screenName: string): any => {
       const Placeholder = this.placeholder;
       const PlaceholderComponent = Placeholder ? <Placeholder /> : Placeholder;
 
-      return this.state.needsExpensive && BundleComponent ?
+      return this.state.isComponentAvailable && BundleComponent ?
         <BundleComponent {...this.props} /> : PlaceholderComponent;
     }
   }

@@ -28,18 +28,7 @@ const register = (component: PreLoadable & Partial<EnhancedPreLoadable>) => {
     return optimized(name);
 };
 
-const component = (name: string) => new Promise((resolve: Function, reject: Function) => {
-    try {
-        if (isCached(name)) {
-            resolve();
-        } else {
-            getComponent(name);
-            resolve();
-        }
-    } catch (e) {
-        reject(e);
-    }
-});
+const component = (name: string) => getComponent(name);
 
 const group = (name: string) => {
     const components = Object.keys(mapLoadable).filter((componentName) => mapLoadable[componentName].group === name);
