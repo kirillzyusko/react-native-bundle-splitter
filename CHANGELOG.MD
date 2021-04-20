@@ -1,5 +1,11 @@
 # Changelog
 
+# 2.1.0
+
+## Added
+
+- Ref Forwarding to OptimizedComponent https://github.com/kirillzyusko/react-native-bundle-splitter/pull/27
+
 # 2.0.0
 
 ## Breaking changes
