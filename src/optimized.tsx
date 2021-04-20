@@ -3,17 +3,20 @@ import * as React from 'react';
 import { getComponent, isCached, getComponentFromCache } from './map';
 import { mapLoadable } from './bundler';
 
-type Props = {};
+type Props<T> = {
+  forwardedRef: React.Ref<T> | null
+};
+
 type State = {
   isComponentAvailable: boolean;
 };
 
-const optimized = (screenName: string): any => {
-  class OptimizedComponent extends React.PureComponent<Props, State> {
+const optimized = <T extends {}>(screenName: string): any => {
+  class OptimizedComponent<T> extends React.PureComponent<Props<T>, State> {
     private component: React.ElementType | null = null;
     private placeholder: React.ElementType | null = mapLoadable[screenName].placeholder;
 
-    constructor(props: Props) {
+    constructor(props: Props<T>) {
       super(props);
       const cached = isCached(screenName);
 
@@ -37,12 +40,13 @@ const optimized = (screenName: string): any => {
     }
 
     public render(): React.ReactNode {
+      const { forwardedRef, ...rest } = this.props;
       const BundleComponent = this.component;
       const Placeholder = this.placeholder;
       const PlaceholderComponent = Placeholder ? <Placeholder /> : Placeholder;
 
       return this.state.isComponentAvailable && BundleComponent ?
-        <BundleComponent {...this.props} /> : PlaceholderComponent;
+        <BundleComponent ref={forwardedRef} {...rest} /> : PlaceholderComponent;
     }
   }
 
@@ -55,7 +59,9 @@ const optimized = (screenName: string): any => {
     });
   }
 
-  return OptimizedComponent;
+  return React.forwardRef((props: Props<T>, ref: React.Ref<T> | null) => {
+    return <OptimizedComponent {...props} forwardedRef={ref} />;
+  });
 };
 
 export default optimized;
