@@ -13,6 +13,14 @@ Splitting your bundle into small pieces allows you reduce size of main bundle, w
  <i>On green part of this picture, you can see that all components/screens are divided into different groups. It allows you to load the application much faster, because instead of loading the entire bundle (red picture), you can load only the parts that you need.</i>
 </p>
 
+## What does this package do?
+
+This package is built on top of **RAM** bundles. In addition to the base functionality provided by React Native, it allows you to:
+
+- avoid boilerplate code (you don't need to write code as per react-native docs - you can simply wrap your component into `register` function);
+- use `preload` API (when you can load screens in advance and the transition to them will be as if the entire bundle was loaded at once);
+- and has web support.
+
 ## Features
 This library is add-on on react-native API. But this library has some features, and here is list of them:
 - **Enhanced cache management**. This library provide a way for caching yours components. This mechanism allows you to improve performance of your application and help to avoid unnecessary reloading yours components, which were already loaded.

@@ -48,7 +48,12 @@ const config = {
 
       return {
         preloadedModules: moduleMap,
-        transform: { inlineRequires: { blacklist: moduleMap } },
+        transform: {
+          inlineRequires: {
+            // `blacklist` for RN < 0.64
+            blockList: moduleMap,
+          },
+        },
       };
     },
   },
