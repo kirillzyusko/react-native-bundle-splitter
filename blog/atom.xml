@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://kirillzyusko.github.io/react-native-bundle-splitter/blog</id>
+    <title>React Native Bundle Splitter Blog</title>
+    <updated>2021-03-20T06:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog"/>
+    <subtitle>The best place to stay up-to-date with the latest React Native Bundle Splitter news and events.</subtitle>
+    <logo>https://kirillzyusko.github.io/react-native-bundle-splitter/img/favicon.ico</logo>
+    <rights>Copyright © 2021</rights>
+    <entry>
+        <title type="html"><![CDATA[New version 2.0.0 with web support]]></title>
+        <id>https://kirillzyusko.github.io/react-native-bundle-splitter/blog/2021/03/20/new-2.0.0-version-with-web-support.html</id>
+        <link href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog/2021/03/20/new-2.0.0-version-with-web-support.html"/>
+        <updated>2021-03-20T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>Announcement of new version release with more platforms support!</p>
+<p>The react-native framework is actively developing. If earlier it was difficult to find a library that would support two platforms (iOS and Android) at the same time, now it is the de facto standard.</p>
+<p>And the boundaries of influence of the react-native framework are expanding. The development team plans to add support for windows, macOS as the default platform.</p>
+<p>Therefore, the new release adds support for the <strong>web</strong> platform (using <code>react-native-web</code>), <strong>macOS</strong> and <strong>windows</strong>.</p>
+]]></summary>
+        <author>
+            <name>Kiryl Ziusko</name>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Version 1.0.0 is released]]></title>
+        <id>https://kirillzyusko.github.io/react-native-bundle-splitter/blog/2019/08/13/new-version-1.0.0.html</id>
+        <link href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog/2019/08/13/new-version-1.0.0.html"/>
+        <updated>2019-08-13T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>Version 1.0.0 is release! Documentation on this site will be posted as soon as it will be ready (will be published in parts).</p> ]]></summary>
+        <author>
+            <name>Kiryl Ziusko</name>
+        </author>
+    </entry>
+</feed>

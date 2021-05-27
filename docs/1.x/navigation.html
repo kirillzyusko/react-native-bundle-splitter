@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Navigation libraries integration · React Native Bundle Splitter</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="As was mentioned in the description of this library - you can easily split your bundle by navigation routes. And this library may be easily integrated with almost all navigation solutions. in this chapter we will have a look on the most popular solutions for navigation: [react-navigation](https://reactnavigation.org/) and [react-native-navigation](https://wix.github.io/react-native-navigation/#/)"/><meta name="docsearch:version" content="1.x"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Navigation libraries integration · React Native Bundle Splitter"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kirillzyusko.github.io/react-native-bundle-splitter/"/><meta property="og:description" content="As was mentioned in the description of this library - you can easily split your bundle by navigation routes. And this library may be easily integrated with almost all navigation solutions. in this chapter we will have a look on the most popular solutions for navigation: [react-navigation](https://reactnavigation.org/) and [react-native-navigation](https://wix.github.io/react-native-navigation/#/)"/><meta property="og:image" content="https://kirillzyusko.github.io/react-native-bundle-splitter/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kirillzyusko.github.io/react-native-bundle-splitter/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/react-native-bundle-splitter/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog/atom.xml" title="React Native Bundle Splitter Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog/feed.xml" title="React Native Bundle Splitter Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-40105113-3', 'auto');
+              ga('send', 'pageview');
+            </script><script src="/react-native-bundle-splitter/js/scrollSpy.js"></script><link rel="stylesheet" href="/react-native-bundle-splitter/css/main.css"/><script src="/react-native-bundle-splitter/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/react-native-bundle-splitter/"><img class="logo" src="/react-native-bundle-splitter/img/favicon.ico" alt="React Native Bundle Splitter"/><h2 class="headerTitleWithLogo">React Native Bundle Splitter</h2></a><a href="/react-native-bundle-splitter/versions"><h3>1.x</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/react-native-bundle-splitter/docs/1.x/getting-started" target="_self">Docs</a></li><li class=""><a href="/react-native-bundle-splitter/docs/1.x/api" target="_self">API</a></li><li class=""><a href="/react-native-bundle-splitter/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Guides</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Fundamentals</h3><ul class=""><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/getting-started">Getting started</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/enabling-ram-bundle">Enabling Ram Bundle</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/basic-usage">Basic usage</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/navigation">Navigation libraries integration</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/static-options">Static options</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/async-loading">Async loading</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/metro">Metro configuration updating</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Recipes</h3><ul class=""><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/bundle-analysis">Bundle analysis</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/capturing-startup-time">Capturing startup time</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Navigation libraries integration</h1></header><article><div><span><p>As was mentioned in the description of this library - you can easily split your bundle by navigation routes. And this library may be easily integrated with almost all navigation solutions. in this chapter we will have a look on the most popular solutions for navigation: <a href="https://reactnavigation.org/">react-navigation</a> and <a href="https://wix.github.io/react-native-navigation/#/">react-native-navigation</a></p>
+<p>Let's consider basic example with two screens. Let's assume we have the next application structure:</p>
+<h2><a class="anchor" aria-hidden="true" id="basic-architecture"></a><a href="#basic-architecture" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic architecture</h2>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">// home.ts</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { Button, View, Text } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HomeScreen</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">flex:</span> <span class="hljs-attr">1</span>, <span class="hljs-attr">alignItems:</span> '<span class="hljs-attr">center</span>', <span class="hljs-attr">justifyContent:</span> '<span class="hljs-attr">center</span>' }}&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>Home Screen<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+          <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to Details"</span>
+          <span class="hljs-attr">onPress</span>=<span class="hljs-string">{this.goToDetails}</span>
+        /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  }
+  
+  private goToDetails = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-comment">// call specific function to perform navigation</span>
+    <span class="hljs-comment">// in case of `react-navigation`: this.props.navigation.navigate('Details')</span>
+    <span class="hljs-comment">// see routes definition below for each library</span>
+  }
+}
+</code></pre>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">// details.ts</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { Button, View, Text } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DetailsScreen</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">flex:</span> <span class="hljs-attr">1</span>, <span class="hljs-attr">alignItems:</span> '<span class="hljs-attr">center</span>', <span class="hljs-attr">justifyContent:</span> '<span class="hljs-attr">center</span>' }}&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>Details Screen<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+          <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to Home... again"</span>
+          <span class="hljs-attr">onPress</span>=<span class="hljs-string">{this.goToHome}</span>
+        /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  }
+  
+   private goToHome = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+     <span class="hljs-comment">// call specific function to perform navigation</span>
+     <span class="hljs-comment">// in case of `react-navigation`: this.props.navigation.navigate('Home')</span>
+     <span class="hljs-comment">// see routes definition below for each library</span>
+   }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="react-navigation-integration"></a><a href="#react-navigation-integration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React Navigation integration</h2>
+<p>Your App container will be the same and there is no any changes.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">// App.ts</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { createStackNavigator, createAppContainer } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-navigation'</span>;
+
+<span class="hljs-keyword">import</span> { AppNavigator } <span class="hljs-keyword">from</span> <span class="hljs-string">'./navigator'</span>;
+
+<span class="hljs-keyword">const</span> AppContainer = createAppContainer(AppNavigator);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">AppContainer</span> /&gt;</span></span>;
+  }
+}
+</code></pre>
+<p>All changes will be only in route declaration.</p>
+<h3><a class="anchor" aria-hidden="true" id="before"></a><a href="#before" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Before</h3>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// navigator.ts</span>
+<span class="hljs-keyword">import</span> { createStackNavigator } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-navigation'</span>;
+
+<span class="hljs-keyword">import</span> DetailsScreen <span class="hljs-keyword">from</span> <span class="hljs-string">'./details'</span>;
+<span class="hljs-keyword">import</span> HomeScreen <span class="hljs-keyword">from</span> <span class="hljs-string">'./home'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> AppNavigator = createStackNavigator(
+  {
+    <span class="hljs-string">'Home'</span>: HomeScreen,
+    <span class="hljs-string">'Details'</span>: DetailsScreen
+  },
+  {
+    <span class="hljs-attr">initialRouteName</span>: <span class="hljs-string">'Home'</span>
+  }
+);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="after"></a><a href="#after" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>After</h3>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// navigator.ts</span>
+<span class="hljs-keyword">import</span> { createStackNavigator } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-navigation'</span>;
+<span class="hljs-keyword">import</span> { register } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native-bundle-splitter'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> AppNavigator = createStackNavigator(
+  {
+    <span class="hljs-string">'Home'</span>: register({ <span class="hljs-attr">require</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">require</span>(<span class="hljs-string">'./home'</span>) }),
+    <span class="hljs-string">'Details'</span>: register({ <span class="hljs-attr">require</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">require</span>(<span class="hljs-string">'./details'</span>) })
+  },
+  {
+    <span class="hljs-attr">initialRouteName</span>: <span class="hljs-string">'Home'</span>
+  }
+);
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="react-native-navigation-integration"></a><a href="#react-native-navigation-integration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React Native Navigation Integration</h2>
+<p>Similarly to <code>react-navigation</code> you need only change declaration of your routes - just wrap all screens, that you want to postpone for loading in <code>register</code> function.</p>
+<h3><a class="anchor" aria-hidden="true" id="before-1"></a><a href="#before-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Before</h3>
+<pre><code class="hljs css language-typescript"><span class="hljs-keyword">import</span> { Navigation } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native-navigation'</span>;
+
+<span class="hljs-keyword">import</span> DetailsScreen <span class="hljs-keyword">from</span> <span class="hljs-string">'./details'</span>;
+<span class="hljs-keyword">import</span> HomeScreen <span class="hljs-keyword">from</span> <span class="hljs-string">'./home'</span>;
+
+Navigation.registerComponent(<span class="hljs-string">'Home'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> HomeScreen);
+Navigation.registerComponent(<span class="hljs-string">'Details'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> DetailsScreen);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="after-1"></a><a href="#after-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>After</h3>
+<pre><code class="hljs css language-typescript"><span class="hljs-keyword">import</span> { Navigation } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native-navigation'</span>;
+<span class="hljs-keyword">import</span> { register } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native-bundle-splitter'</span>;
+
+<span class="hljs-keyword">const</span> DetailsScreen = register({ <span class="hljs-built_in">require</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">require</span>(<span class="hljs-string">'./details'</span>) });
+<span class="hljs-keyword">const</span> HomeScreen = register({ <span class="hljs-built_in">require</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">require</span>(<span class="hljs-string">'./home'</span>) });
+
+Navigation.registerComponent(<span class="hljs-string">'Home'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> HomeScreen);
+Navigation.registerComponent(<span class="hljs-string">'Details'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> DetailsScreen);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="summary"></a><a href="#summary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Summary</h2>
+<p>As you saw in both cases (integration with <code>react-navigation</code> and <code>react-native-navigation</code>) you just need to wrap your screens, that you want to postpone for loading, in <code>register</code> function.</p>
+<blockquote>
+<p>As you can see in this section we used <code>register</code> function directly in the navigation declaration, unlike <a href="./basic-usage">Basic usage</a>, where we used <code>register</code> in the <code>index</code> file. You can choose which way is more preferable for you: use this HOC in the routes declaration or in <code>index</code> files. No need to use it twice.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/react-native-bundle-splitter/docs/1.x/basic-usage"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/react-native-bundle-splitter/docs/1.x/static-options"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#basic-architecture">Basic architecture</a></li><li><a href="#react-navigation-integration">React Navigation integration</a><ul class="toc-headings"><li><a href="#before">Before</a></li><li><a href="#after">After</a></li></ul></li><li><a href="#react-native-navigation-integration">React Native Navigation Integration</a><ul class="toc-headings"><li><a href="#before-1">Before</a></li><li><a href="#after-1">After</a></li></ul></li><li><a href="#summary">Summary</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/react-native-bundle-splitter/" class="nav-home"><img src="/react-native-bundle-splitter/img/favicon.ico" alt="React Native Bundle Splitter" width="66" height="58"/></a><div><h5>Docs</h5><a href="/react-native-bundle-splitter/docs/getting-started">Getting Started</a><a href="/react-native-bundle-splitter/docs/navigation">Guides</a><a href="/react-native-bundle-splitter/docs/bundle-analysis">Recipes</a><a href="/react-native-bundle-splitter/docs/api">API Reference</a></div><div><h5>Resource</h5><a href="https://reactnative.dev/docs/ram-bundles-inline-requires">RAM bundles</a></div><div><h5>More</h5><a href="/react-native-bundle-splitter/blog">Blog</a><a href="https://github.com/kirillzyusko/react-native-bundle-splitter">GitHub</a><iframe src="https://ghbtns.com/github-btn.html?user=kirillzyusko&amp;repo=react-native-bundle-splitter&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe></div></section><section class="copyright">Copyright © 2021</section></footer></div></body></html>

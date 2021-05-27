@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Enabling Ram Bundle · React Native Bundle Splitter</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## RAM... What is it? About RAM Bundle format"/><meta name="docsearch:version" content="1.x"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Enabling Ram Bundle · React Native Bundle Splitter"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kirillzyusko.github.io/react-native-bundle-splitter/"/><meta property="og:description" content="## RAM... What is it? About RAM Bundle format"/><meta property="og:image" content="https://kirillzyusko.github.io/react-native-bundle-splitter/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kirillzyusko.github.io/react-native-bundle-splitter/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/react-native-bundle-splitter/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog/atom.xml" title="React Native Bundle Splitter Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog/feed.xml" title="React Native Bundle Splitter Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-40105113-3', 'auto');
+              ga('send', 'pageview');
+            </script><script src="/react-native-bundle-splitter/js/scrollSpy.js"></script><link rel="stylesheet" href="/react-native-bundle-splitter/css/main.css"/><script src="/react-native-bundle-splitter/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/react-native-bundle-splitter/"><img class="logo" src="/react-native-bundle-splitter/img/favicon.ico" alt="React Native Bundle Splitter"/><h2 class="headerTitleWithLogo">React Native Bundle Splitter</h2></a><a href="/react-native-bundle-splitter/versions"><h3>1.x</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/react-native-bundle-splitter/docs/1.x/getting-started" target="_self">Docs</a></li><li class=""><a href="/react-native-bundle-splitter/docs/1.x/api" target="_self">API</a></li><li class=""><a href="/react-native-bundle-splitter/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Fundamentals</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Fundamentals</h3><ul class=""><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/getting-started">Getting started</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/enabling-ram-bundle">Enabling Ram Bundle</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/basic-usage">Basic usage</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/navigation">Navigation libraries integration</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/static-options">Static options</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/async-loading">Async loading</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/metro">Metro configuration updating</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Recipes</h3><ul class=""><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/bundle-analysis">Bundle analysis</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/1.x/capturing-startup-time">Capturing startup time</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Enabling Ram Bundle</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="ram-what-is-it-about-ram-bundle-format"></a><a href="#ram-what-is-it-about-ram-bundle-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RAM... What is it? About RAM Bundle format</h2>
+<h3><a class="anchor" aria-hidden="true" id="ram-bundle-format"></a><a href="#ram-bundle-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RAM Bundle format</h3>
+<p><a href="https://facebook.github.io/metro/">Metro</a> bundler for react-native offers special format - RAM (Random Access Memory). RAM bundle is a new format of React Native application packaging that helps to optimize load times of your app.</p>
+<p>You can read <a href="https://facebook.github.io/metro/docs/bundling">more</a> about this bundle format.</p>
+<h3><a class="anchor" aria-hidden="true" id="context-and-motivation"></a><a href="#context-and-motivation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Context and motivation</h3>
+<p>React Native is a still JS application. In the browser all your JavaScript and modules have to be bundled (combined, minified, and maybe even uglified) before deploying. As a result, you drastically reduce the number of files (usually down to one) along with the total size of the code you’re serving by removing all information not necessary for production, i.e., mercilessly rewriting function and variables names, deleting code comments, and so on.</p>
+<p>The whole procedure stays pretty much the same when you’re developing a React Native app. It’s still (React-flavored) JavaScript you write there, right?</p>
+<p>But here’s a problem: when your app grows, so does the bundle size, and let’s just say that React Native apps are usually more than a few kilobytes in size. The heavier your app bundle is, the more time it needs to be fully loaded into memory, parsed, and executed, before even showing you a splash screen!</p>
+<p>However, the difference is that a React Native app is executed in a different environment — on your mobile device running Android or iOS (coming soon on Windows devices) rather than in your browser. This allows React Native to be smarter about what it loads to memory and when. And this is when RAM bundles come into play: they define a new bundling format that enables on-demand loading of individual app modules, resulting in a smoother user experience.</p>
+<h3><a class="anchor" aria-hidden="true" id="formats"></a><a href="#formats" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Formats</h3>
+<p>The official way to bundle your React Native apps at the moment is using Metro Bundler, which currently supports the following bundling formats:</p>
+<ul>
+<li><p><strong>Plain</strong>: Good old, pure JavaScript bundle. This is the default type that doesn’t offer any optimizations.</p></li>
+<li><p><strong>Indexed RAM Bundle</strong>: This format defines a binary file with a header that can be used for quickly finding a specific module. For example, the header can tell us that module number 23 (all JavaScript modules in React Native apps are given numerical identifiers) can be found at offset 320 in the RAM bundle file, and has a length of 430 bytes. How does this help us? React Native runtime now doesn’t need to read the entire bundle file into memory, and can load specific modules only when they are needed (e.g., via inline requires).</p></li>
+<li><p><strong>File RAM Bundle</strong>: With this approach, every module is stored in a separate file with the name <code>js-modules/${id}.js</code>, where <code>${id}</code> is the module’s ID. This format is used by default on Android devices but has the same purpose: to have fast access to individual modules in your bundle.</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="enabling-ram-bundle-feature-in-your-application"></a><a href="#enabling-ram-bundle-feature-in-your-application" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enabling RAM Bundle feature in your application</h2>
+<p>For enabling this format in your application you need to do pretty simple steps for each platform.</p>
+<blockquote>
+<p><em>Note:</em> Although enabling RAM Bundle format is recommended for both platforms, you can only enable it for one if necessary.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="android"></a><a href="#android" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Android</h3>
+<p>Open <code>android/app/build.gradle</code> and edit your file in the following way.</p>
+<pre><code class="hljs css language-diff">project.ext.react = [
+        entryFile              : "index.js",
+<span class="hljs-addition">+       bundleCommand          : "ram-bundle",</span>
+<span class="hljs-addition">+       extraPackagerArgs      : ["--indexed-ram-bundle"]</span>
+    ...
+</code></pre>
+<blockquote>
+<p><em>Note:</em> You can choose between formats, since Android support both format (indexed and file). But since iOS support only <code>indexed</code> format, would be reasonable to keep both platform in consistent and use <code>indexed</code> format. But if you decided for some reasons to use <code>file</code> format, you don't need to add <code>extraPackagerArgs: [&quot;--indexed-ram-bundle&quot;]</code> line. By default android uses <code>file</code> format.</p>
+</blockquote>
+<blockquote>
+<p><em>Note:</em> If you are trying to enable this feature with Hermes engine, you may faced with application crash. It's a known <a href="https://github.com/facebook/react-native/issues/25730">issue</a>. As a temporary solution you can don't activate this bundle format for Android, since Hermes is using similar <a href="https://github.com/facebook/react-native/issues/25730#issuecomment-514115115">mechanism</a>.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="ios"></a><a href="#ios" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iOS</h3>
+<p>For enabling RAM format for iOS you need to open XCode, select the project, go to <code>Build Phases</code>, and edit phase <code>Bundle React Native code and images</code>. Before <code>../node_modules/react-native/scripts/react-native-xcode.sh</code> you need to add <code>BUNDLE_COMMAND=&quot;ram-bundle&quot;</code>:</p>
+<pre><code class="hljs css language-diff"><span class="hljs-addition">+export BUNDLE_COMMAND="ram-bundle"</span>
+ export NODE_BINARY=node
+ ../node_modules/react-native/scripts/react-native-xcode.sh                                        
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="summary"></a><a href="#summary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Summary</h2>
+<p>Basically you have completed native set up and now you are ready for using this library!</p>
+<blockquote>
+<p><em>Advice</em>: To be sure, that your application isn't broken after all manipulations you can rebuild your application and see, that it works correctly.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/react-native-bundle-splitter/docs/1.x/getting-started"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/react-native-bundle-splitter/docs/1.x/basic-usage"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#ram-what-is-it-about-ram-bundle-format">RAM... What is it? About RAM Bundle format</a><ul class="toc-headings"><li><a href="#ram-bundle-format">RAM Bundle format</a></li><li><a href="#context-and-motivation">Context and motivation</a></li><li><a href="#formats">Formats</a></li></ul></li><li><a href="#enabling-ram-bundle-feature-in-your-application">Enabling RAM Bundle feature in your application</a><ul class="toc-headings"><li><a href="#android">Android</a></li><li><a href="#ios">iOS</a></li></ul></li><li><a href="#summary">Summary</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/react-native-bundle-splitter/" class="nav-home"><img src="/react-native-bundle-splitter/img/favicon.ico" alt="React Native Bundle Splitter" width="66" height="58"/></a><div><h5>Docs</h5><a href="/react-native-bundle-splitter/docs/getting-started">Getting Started</a><a href="/react-native-bundle-splitter/docs/navigation">Guides</a><a href="/react-native-bundle-splitter/docs/bundle-analysis">Recipes</a><a href="/react-native-bundle-splitter/docs/api">API Reference</a></div><div><h5>Resource</h5><a href="https://reactnative.dev/docs/ram-bundles-inline-requires">RAM bundles</a></div><div><h5>More</h5><a href="/react-native-bundle-splitter/blog">Blog</a><a href="https://github.com/kirillzyusko/react-native-bundle-splitter">GitHub</a><iframe src="https://ghbtns.com/github-btn.html?user=kirillzyusko&amp;repo=react-native-bundle-splitter&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe></div></section><section class="copyright">Copyright © 2021</section></footer></div></body></html>

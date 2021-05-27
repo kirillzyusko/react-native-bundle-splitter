@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>React Native Bundle Splitter Blog</title>
+        <link>https://kirillzyusko.github.io/react-native-bundle-splitter/blog</link>
+        <description>The best place to stay up-to-date with the latest React Native Bundle Splitter news and events.</description>
+        <lastBuildDate>Sat, 20 Mar 2021 06:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>React Native Bundle Splitter Blog</title>
+            <url>https://kirillzyusko.github.io/react-native-bundle-splitter/img/favicon.ico</url>
+            <link>https://kirillzyusko.github.io/react-native-bundle-splitter/blog</link>
+        </image>
+        <copyright>Copyright © 2021</copyright>
+        <item>
+            <title><![CDATA[New version 2.0.0 with web support]]></title>
+            <link>https://kirillzyusko.github.io/react-native-bundle-splitter/blog/2021/03/20/new-2.0.0-version-with-web-support.html</link>
+            <guid>https://kirillzyusko.github.io/react-native-bundle-splitter/blog/2021/03/20/new-2.0.0-version-with-web-support.html</guid>
+            <pubDate>Sat, 20 Mar 2021 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Announcement of new version release with more platforms support!</p>
+<p>The react-native framework is actively developing. If earlier it was difficult to find a library that would support two platforms (iOS and Android) at the same time, now it is the de facto standard.</p>
+<p>And the boundaries of influence of the react-native framework are expanding. The development team plans to add support for windows, macOS as the default platform.</p>
+<p>Therefore, the new release adds support for the <strong>web</strong> platform (using <code>react-native-web</code>), <strong>macOS</strong> and <strong>windows</strong>.</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Version 1.0.0 is released]]></title>
+            <link>https://kirillzyusko.github.io/react-native-bundle-splitter/blog/2019/08/13/new-version-1.0.0.html</link>
+            <guid>https://kirillzyusko.github.io/react-native-bundle-splitter/blog/2019/08/13/new-version-1.0.0.html</guid>
+            <pubDate>Tue, 13 Aug 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Version 1.0.0 is release! Documentation on this site will be posted as soon as it will be ready (will be published in parts).</p> ]]></description>
+        </item>
+    </channel>
+</rss>

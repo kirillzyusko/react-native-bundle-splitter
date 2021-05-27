@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Capturing startup time · React Native Bundle Splitter</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The main purpose of this package is splitting bundle by two parts: the first, relatively small which you can load at the start of your application, and the second, where you will keep the rest part of your application. Such way allows significantly decrease initial **startup time** and practically reduce it to the same time as in an empty application created via `react-native init` command. Let&#x27;s look how we can capture the startup time of an application and understand, how much did you win with the usage of this library."/><meta name="docsearch:version" content="2.x"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Capturing startup time · React Native Bundle Splitter"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kirillzyusko.github.io/react-native-bundle-splitter/"/><meta property="og:description" content="The main purpose of this package is splitting bundle by two parts: the first, relatively small which you can load at the start of your application, and the second, where you will keep the rest part of your application. Such way allows significantly decrease initial **startup time** and practically reduce it to the same time as in an empty application created via `react-native init` command. Let&#x27;s look how we can capture the startup time of an application and understand, how much did you win with the usage of this library."/><meta property="og:image" content="https://kirillzyusko.github.io/react-native-bundle-splitter/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kirillzyusko.github.io/react-native-bundle-splitter/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/react-native-bundle-splitter/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog/atom.xml" title="React Native Bundle Splitter Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog/feed.xml" title="React Native Bundle Splitter Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-40105113-3', 'auto');
+              ga('send', 'pageview');
+            </script><script src="/react-native-bundle-splitter/js/scrollSpy.js"></script><link rel="stylesheet" href="/react-native-bundle-splitter/css/main.css"/><script src="/react-native-bundle-splitter/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/react-native-bundle-splitter/"><img class="logo" src="/react-native-bundle-splitter/img/favicon.ico" alt="React Native Bundle Splitter"/><h2 class="headerTitleWithLogo">React Native Bundle Splitter</h2></a><a href="/react-native-bundle-splitter/versions"><h3>2.x</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/react-native-bundle-splitter/docs/getting-started" target="_self">Docs</a></li><li class=""><a href="/react-native-bundle-splitter/docs/api" target="_self">API</a></li><li class=""><a href="/react-native-bundle-splitter/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Recipes</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Fundamentals</h3><ul class=""><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/getting-started">Getting started</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/enabling-ram-bundle">Enabling Ram Bundle</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/basic-usage">Basic usage</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/navigation">Navigation libraries integration</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/static-options">Static options</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/async-loading">Async loading</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/metro">Metro configuration updating</a></li><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/upgrading-from-1.x">Upgrading from 1.x</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Recipes</h3><ul class=""><li class="navListItem"><a class="navItem" href="/react-native-bundle-splitter/docs/bundle-analysis">Bundle analysis</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/react-native-bundle-splitter/docs/capturing-startup-time">Capturing startup time</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Capturing startup time</h1></header><article><div><span><p>The main purpose of this package is splitting bundle by two parts: the first, relatively small which you can load at the start of your application, and the second, where you will keep the rest part of your application. Such way allows significantly decrease initial <strong>startup time</strong> and practically reduce it to the same time as in an empty application created via <code>react-native init</code> command. Let's look how we can capture the startup time of an application and understand, how much did you win with the usage of this library.</p>
+<p>Below are two ways to measure the start time of the application.</p>
+<h2><a class="anchor" aria-hidden="true" id="using-react-native-startup-time-library"></a><a href="#using-react-native-startup-time-library" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using <code>react-native-startup-time</code> library</h2>
+<h3><a class="anchor" aria-hidden="true" id="library-that-you-need-to-install"></a><a href="#library-that-you-need-to-install" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Library that you need to install</h3>
+<p>First of all you need to install 3rd party package, that allows you to capture the startup time. I'd recommend you to start using <a href="https://www.npmjs.com/package/react-native-startup-time">react-native-startup-time</a>. So let's start with this library.</p>
+<pre><code class="hljs css language-bash">yarn add react-native-startup-time
+<span class="hljs-comment"># or with npm</span>
+<span class="hljs-comment"># npm install react-native-startup-time --save</span>
+</code></pre>
+<blockquote>
+<p>Note: this library is need in react-native linking. So if you are using react-native &lt;= 0.60 you need to go through manual step of linking that you may find in the docs of this library.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="integration-to-an-application"></a><a href="#integration-to-an-application" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Integration to an application</h3>
+<p>After installation you need to integrate it to your application. Basically there you have two ways of usage:</p>
+<ul>
+<li>as JSX-element</li>
+<li>imperative call</li>
+</ul>
+<p>I would <strong>highly</strong> recommend you to capture the startup time on application, that builded with minification and in prod mode (at least without the usage of <code>dev-server</code>). In other case, metrics, that you captured may not reflect a real situation.</p>
+<p>However in a lot of application the most common used approach is deleting any <code>console.log</code> statements in application in production mode via babel-plugin, for example. So I'd recommend you use <strong>JSX-element</strong> approach.</p>
+<p>So let's start with JSX-element. First of all you need to add import statement:</p>
+<pre><code class="hljs css language-diff"><span class="hljs-addition">+ import { StartupTime } from 'react-native-startup-time';</span>
+</code></pre>
+<p>And after that somewhere in the root of your application you need to add this part of markup:</p>
+<pre><code class="hljs css language-typescript jsx">&lt;StartupTime
+    style={styles.startupTime <span class="hljs-comment">/* optional */</span>}
+/&gt;
+</code></pre>
+<p>That's all. Now you are ready to see the real startup time. For this, please, build a production release and run it on a real devices on both Platform (iOS/Android).</p>
+<p>In order to see the difference between two versions of an application (with usage of <code>react-native-bundle-splitter</code> and without) you should capture these metrics on both version of application.</p>
+<blockquote>
+<p>Note: For capturing the real metrics you should kill your application after every running.</p>
+</blockquote>
+<blockquote>
+<p>Note: for a more revealing result you should try to capture results several (I'd recommend at least five) times. In this case you can see the average startup time.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="flipper"></a><a href="#flipper" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Flipper</h2>
+<p>Starting from 0.62 <code>react-native</code> has <code>Flipper</code> integration. If you already use this tool you can add <a href="https://github.com/oblador/react-native-performance">react-native-performance</a> plugin and capture a lot of metrics.</p>
+<p>You can read detailed instructions on how to set it up in github repo. More likely you will be interested only in <code>runJsBundleStart</code> and <code>runJsBundleEnd</code> performance metrics, but this plugin has support for much more.</p>
+<p>In the end you will have visualized results, which should look like the image below:</p>
+<p><img src="https://user-images.githubusercontent.com/378279/105892056-9f677480-6011-11eb-895a-f3f8653449c8.png" alt="Flipper performance plugin"></p>
+<h2><a class="anchor" aria-hidden="true" id="expected-results"></a><a href="#expected-results" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Expected results</h2>
+<p>On various projects you may get different results. And these results depend only on size and complexity of your js code and static assets. And if you were able to reduce your initially loaded bundle from 50 mb to 2 mb, for example, of course, you may expect significant boost of the performance.</p>
+<p>From perspective of my practice I get various results, but the average range was about 0.3-1.5s.</p>
+<p>As an example I can show you the performance table from the last project, which I was written.</p>
+<table>
+<thead>
+<tr><th style="text-align:center">Platform</th><th style="text-align:center">Usage of <code>react-native-bundle-splitter</code></th><th style="text-align:center">Time (ms)</th><th style="text-align:center">Average</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Android</strong></td><td style="text-align:center">✅</td><td style="text-align:center">834, 861, 820, 847, 816</td><td style="text-align:center"><strong>835.6</strong></td></tr>
+<tr><td style="text-align:center"><strong>Android</strong></td><td style="text-align:center">❌</td><td style="text-align:center">1374, 1325, 1310, 1281, 1354</td><td style="text-align:center"><strong>1,328.8</strong></td></tr>
+<tr><td style="text-align:center"><strong>iOS</strong></td><td style="text-align:center">✅</td><td style="text-align:center">1074, 1056, 1044, 1068, 1052</td><td style="text-align:center"><strong>1,058.8</strong></td></tr>
+<tr><td style="text-align:center"><strong>iOS</strong></td><td style="text-align:center">❌</td><td style="text-align:center">1784, 1767, 1798, 1779, 1783</td><td style="text-align:center"><strong>1784</strong></td></tr>
+</tbody>
+</table>
+<p>As you can see the difference in startup time is ~500ms for <strong>Android</strong> and ~700ms for <strong>iOS</strong>.</p>
+<p>But it doesn't mean, that for your application results will be the same. Each application and each platform is universal - it has own structure and business logic, so there is only one 100% way to know what is the boost of performance you may get - try to integrate this library to your project and see the results.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/react-native-bundle-splitter/docs/bundle-analysis"><span class="arrow-prev">← </span><span>Previous</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#using-react-native-startup-time-library">Using <code>react-native-startup-time</code> library</a><ul class="toc-headings"><li><a href="#library-that-you-need-to-install">Library that you need to install</a></li><li><a href="#integration-to-an-application">Integration to an application</a></li></ul></li><li><a href="#flipper">Flipper</a></li><li><a href="#expected-results">Expected results</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/react-native-bundle-splitter/" class="nav-home"><img src="/react-native-bundle-splitter/img/favicon.ico" alt="React Native Bundle Splitter" width="66" height="58"/></a><div><h5>Docs</h5><a href="/react-native-bundle-splitter/docs/getting-started">Getting Started</a><a href="/react-native-bundle-splitter/docs/navigation">Guides</a><a href="/react-native-bundle-splitter/docs/bundle-analysis">Recipes</a><a href="/react-native-bundle-splitter/docs/api">API Reference</a></div><div><h5>Resource</h5><a href="https://reactnative.dev/docs/ram-bundles-inline-requires">RAM bundles</a></div><div><h5>More</h5><a href="/react-native-bundle-splitter/blog">Blog</a><a href="https://github.com/kirillzyusko/react-native-bundle-splitter">GitHub</a><iframe src="https://ghbtns.com/github-btn.html?user=kirillzyusko&amp;repo=react-native-bundle-splitter&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe></div></section><section class="copyright">Copyright © 2021</section></footer></div></body></html>
