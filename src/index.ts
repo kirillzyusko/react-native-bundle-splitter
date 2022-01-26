@@ -20,7 +20,7 @@ const register = (component: PreLoadable & Partial<EnhancedPreLoadable>) => {
     const { name } = enhancedComponent;
 
     if (mapLoadable[name] !== undefined) {
-        throw new Error(`You try to add new component with already existing name: ${name}`);
+        console.warn(`You are trying to add a new component with already existing name: ${name}. If you see this warning after fast/hot reloading and you use 'register' function in Navigator without separate 'index' files - it's fine. In other cases it may indicate an issue, since by default it will overwrite the data and screen will not be cached. See https://github.com/kirillzyusko/react-native-bundle-splitter/issues/29 for more details.`);
     }
 
     mapLoadable[name] = enhancedComponent;
