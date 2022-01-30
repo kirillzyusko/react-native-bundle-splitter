@@ -1,5 +1,3 @@
-import { ComponentClass } from 'react';
-
 import optimized from './optimized';
 import { mapLoadable } from './bundler';
 import { Component, EnhancedPreLoadable, PreLoadable } from './interface';
