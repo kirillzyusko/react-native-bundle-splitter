@@ -11,7 +11,7 @@ type State = {
   isComponentAvailable: boolean;
 };
 
-const optimized = <T extends {}>(screenName: string) => {
+const optimized = <T extends {}>(screenName: string): any => {
   class OptimizedComponent<T> extends React.PureComponent<Props<T>, State> {
     private component: React.ElementType | null = null;
     private placeholder: React.ElementType | null = mapLoadable[screenName].placeholder;

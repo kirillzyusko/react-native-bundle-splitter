@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import optimized from './optimized';
 import { mapLoadable } from './bundler';
 import { Component, EnhancedPreLoadable, PreLoadable } from './interface';
@@ -25,7 +27,7 @@ const register = <P extends {}>(component: PreLoadable & Partial<EnhancedPreLoad
 
     mapLoadable[name] = enhancedComponent;
 
-    return optimized<P>(name);
+    return optimized(name) as React.ComponentClass<P>;
 };
 
 const component = (name: string) => getComponent(name);
