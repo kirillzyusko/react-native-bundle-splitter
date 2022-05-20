@@ -50,18 +50,20 @@ const optimized = <T extends {}>(screenName: string): any => {
     }
   }
 
+  const OptimizedComponentForwardedRef = React.forwardRef((props: Props<T>, ref: React.Ref<T> | null) => {
+    return <OptimizedComponent {...props} forwardedRef={ref} />;
+  });
+
   const registerData = mapLoadable[screenName];
 
   if (registerData.static) {
     Object.keys(registerData.static).forEach((key: string) => {
       // @ts-ignore
-      OptimizedComponent[key] = registerData.static[key];
+      OptimizedComponentForwardedRef[key] = registerData.static[key];
     });
   }
 
-  return React.forwardRef((props: Props<T>, ref: React.Ref<T> | null) => {
-    return <OptimizedComponent {...props} forwardedRef={ref} />;
-  });
+  return OptimizedComponentForwardedRef;
 };
 
 export default optimized;
