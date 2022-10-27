@@ -6,7 +6,7 @@ Decrease your start up time and RAM memory consumption by an application via spl
 
 ## Demonstration
 
-<img src="./docs/images/demo.gif?raw=true">
+<img src="./gifs/demo.gif?raw=true">
 
 
 > This example provide only approximate difference between the same application version (running on the same device). Your benchmarks may be significantly different, since it depends only on application complexity (js bundle size).
