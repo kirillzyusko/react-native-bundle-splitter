@@ -39,6 +39,11 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/kirillzyusko/react-native-bundle-splitter/tree/main/docs/',
+          versions: {
+            '1.x': {
+              label: '1.x',
+            },
+          },
         },
         blog: {
           showReadingTime: true,
@@ -69,12 +74,17 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            docId: 'fundamentals/getting-started',
+            to: '/docs/fundamentals/getting-started',
             position: 'left',
             label: 'Docs',
           },
+          {to: '/docs/category/api-reference', label: 'API', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+            dropdownActiveClassDisabled: true,
+          },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
@@ -89,8 +99,20 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Getting started',
                 to: '/docs/fundamentals/getting-started',
+              },
+              {
+                label: 'Guides',
+                to: '/docs/guides/navigation',
+              },
+              {
+                label: 'Recipes',
+                to: '/docs/recipes/bundle-analysis',
+              },
+              {
+                label: 'API reference',
+                to: '/docs/category/api-reference',
               },
             ],
           },
