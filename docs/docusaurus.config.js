@@ -38,7 +38,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/kirillzyusko/react-native-bundle-splitter/tree/main/docs/',
+            'https://github.com/kirillzyusko/react-native-bundle-splitter/tree/master/docs/',
           versions: {
             '1.x': {
               label: '1.x',
@@ -53,7 +53,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/kirillzyusko/react-native-bundle-splitter/tree/main/docs/',
+            'https://github.com/kirillzyusko/react-native-bundle-splitter/tree/master/docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
