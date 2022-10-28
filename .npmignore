@@ -5,6 +5,7 @@
 
 # user
 .gitignore
+.github
 tsconfig.json
 docs
 gifs
