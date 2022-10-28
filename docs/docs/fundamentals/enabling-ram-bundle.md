@@ -70,6 +70,16 @@ For enabling RAM format for iOS you need to open XCode, select the project, go t
  ../node_modules/react-native/scripts/react-native-xcode.sh                                        
 ```
 
+### macOS
+
+Enabling `RAM Bundles` on macOS should be done exactly in the same way as for `iOS`
+
+Just open macOS specific project and repeat the same steps.
+
+### web
+
+No extra steps for `web` as there is no such term as "RAM bundles". Webpack itself will be able to split your JS bundle into small parts and will load them as soon as they are needed.
+
 ## Summary
 
 Basically you have completed native set up and now you are ready for using this library!

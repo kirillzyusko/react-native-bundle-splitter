@@ -24,7 +24,7 @@ In order to make it working you need to pass all your `static` to register compo
 import { register } from 'react-native-bundle-splitter';
 
 export default register({ 
-    require: () => require('./View'), 
+    loader: () => import('./View'), 
     static: { 
         navigationOptions: { 
             title: 'Home' 
@@ -39,7 +39,7 @@ Of course, you can pass not only plain objects, but functions as well:
 import { register } from 'react-native-bundle-splitter';
 
 export default register({ 
-    require: () => require('./View'), 
+    loader: () => import('./View'), 
     static: { 
         navigationOptions: ({ navigation }) => { 
             // all code from your component
@@ -51,7 +51,7 @@ export default register({
 });
 ```
 
-And `navigationOptions` already will not use from your presentational class, so you can remove it.
+And `navigationOptions` already will not be used from your presentational class, so you can remove it.
 
 ```ts
 class HomeScreen extends React.Component {

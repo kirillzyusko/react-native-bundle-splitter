@@ -28,10 +28,21 @@ You can easily rewrite it with this library!
 ```js
 import { register } from 'react-native-bundle-splitter';
 
-export default register({ require: () => require('./View') });
+export default register({ loader: () => import('./View') });
 ```
 
 That's all! You can reload your application to see the results and guarantee this changes will not break anything.
+
+:::tip
+If you are using TypeScript in your project, then you may want to specify `Props` for your lazily loaded component. You can do it in this way:
+
+```ts
+import { register } from 'react-native-bundle-splitter';
+import type {Props} from './types';
+
+export default register<Props>({ loader: () => import('./View') });
+```
+:::
 
 :::caution Avoid direct references to lazy-loaded file
 Please, be sure, that you have such `index.ts` file. This library works only in case if you don't have any `import` statements which refers to your file. In other words: be sure that you do **NOT** import this file (`View`) from anywhere in your code.

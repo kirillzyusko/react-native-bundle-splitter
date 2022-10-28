@@ -6,7 +6,11 @@ sidebar_position: 2
 
 The main purpose of this package is splitting bundle by two parts: the first, relatively small which you can load at the start of your application, and the second, where you will keep the rest part of your application. Such way allows significantly decrease initial **startup time** and practically reduce it to the same time as in an empty application created via `react-native init` command. Let's look how we can capture the startup time of an application and understand, how much did you win with the usage of this library.
 
-## Library that you need to install
+Below are two ways to measure the start time of the application.
+
+## Using `react-native-startup-time` library
+
+### Library that you need to install
 
 First of all you need to install 3rd party package, that allows you to capture the startup time. I'd recommend you to start using [react-native-startup-time](https://www.npmjs.com/package/react-native-startup-time). So let's start with this library.
 
@@ -20,7 +24,7 @@ yarn add react-native-startup-time
 This library is need in react-native linking. So if you are using react-native <= 0.60 you need to go through manual step of linking that you may find in the docs of this library.
 :::
 
-## Integration to an application
+### Integration to an application
 
 After installation you need to integrate it to your application. Basically there you have two ways of usage:
 - as JSX-element
@@ -55,6 +59,16 @@ For capturing the real metrics you should kill your application after every runn
 :::info
 For a more revealing result you should try to capture results several (I'd recommend at least five) times. In this case you can see the average startup time.
 :::
+
+## Flipper
+
+Starting from 0.62 `react-native` has `Flipper` integration. If you already use this tool you can add [react-native-performance](https://github.com/oblador/react-native-performance) plugin and capture a lot of metrics.
+
+You can read detailed instructions on how to set it up in github repo. More likely you will be interested only in `runJsBundleStart` and `runJsBundleEnd` performance metrics, but this plugin has support for much more.
+
+In the end you will have visualized results, which should look like the image below:
+
+![Flipper performance plugin](https://user-images.githubusercontent.com/378279/105892056-9f677480-6011-11eb-895a-f3f8653449c8.png)
 
 ## Expected results
 
