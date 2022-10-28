@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[5930],{7:e=>{e.exports=JSON.parse('{"label":"announcement","permalink":"/react-native-bundle-splitter/blog/tags/announcement","allTagsPath":"/react-native-bundle-splitter/blog/tags","count":1}')}}]);

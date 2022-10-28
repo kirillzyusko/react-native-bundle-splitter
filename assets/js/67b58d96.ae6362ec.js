@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[5199],{2060:e=>{e.exports=JSON.parse('{"permalink":"/react-native-bundle-splitter/blog/tags/new-site-engine","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

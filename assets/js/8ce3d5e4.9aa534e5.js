@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[8736],{3206:e=>{e.exports=JSON.parse('{"label":"new site engine","permalink":"/react-native-bundle-splitter/blog/tags/new-site-engine","allTagsPath":"/react-native-bundle-splitter/blog/tags","count":1}')}}]);
