@@ -148,6 +148,20 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      metadata: [
+        {
+          name: 'keywords',
+          content: 'react-native, bundle, ram bundle, splitting, lazy loading, ios, android, web',
+        },
+      ],
+      algolia: {
+        appId: 'SCBZPT6AKE',
+        apiKey: '95be5157ed8e5fccc75fa32ad051d021',
+        indexName: 'react-native-bundle-splitter',
+        contextualSearch: true,
+        searchParameters: {},
+        searchPagePath: false,
+      },
     }),
 };
 
