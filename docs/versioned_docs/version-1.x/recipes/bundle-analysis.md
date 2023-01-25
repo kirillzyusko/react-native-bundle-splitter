@@ -12,7 +12,7 @@ Since `react-native-bundle-visualizer` has some issues with typescript I recomme
 First of all you need to install it:
 
 ```bash
-yarn add visualize-bundle -dev
+yarn add visualize-bundle --dev
 # or with npm
 # npm install visualize-bundle --save-dev
 ```
