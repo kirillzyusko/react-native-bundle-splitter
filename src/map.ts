@@ -27,7 +27,7 @@ const nonBlockingLoader = (loader: RequireLoader | ImportLoader) => new Promise(
 });
 
 export const getComponent = async (name: string) => {
-    if (!isCached(name)) {
+    if (!isCached(name) && mapLoadable[name]) {
         const { require: load, loader, ...rest } = mapLoadable[name];
         let component = null;
 
