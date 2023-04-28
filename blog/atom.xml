@@ -9,7 +9,7 @@
     <icon>https://kirillzyusko.github.io/react-native-bundle-splitter/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Migration to Docusaurus v2]]></title>
-        <id>new-sire-engine</id>
+        <id>https://kirillzyusko.github.io/react-native-bundle-splitter/blog/new-sire-engine</id>
         <link href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog/new-sire-engine"/>
         <updated>2022-10-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I'm happy to announce that I finally migrated website to the second version of Docusaurus. I hope you enjoyed new design, support for dark theme and many other UI perks.]]></summary>
@@ -22,11 +22,11 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[New version 2.0.0 with web support]]></title>
-        <id>version-2.0</id>
+        <id>https://kirillzyusko.github.io/react-native-bundle-splitter/blog/version-2.0</id>
         <link href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog/version-2.0"/>
         <updated>2021-03-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Announcement of new version release with more platforms support!]]></summary>
-        <content type="html"><![CDATA[<p>Announcement of new version release with more platforms support!</p><p>The react-native framework is actively developing. If earlier it was difficult to find a library that would support two platforms (iOS and Android) at the same time, now it is the de facto standard.</p><p>And the boundaries of influence of the react-native framework are expanding. The development team plans to add support for windows, macOS as the default platform.</p><p>Therefore, the new release adds support for the <strong>web</strong> platform (using <code>react-native-web</code>), <strong>macOS</strong> and <strong>windows</strong>.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="breaking-changes">Breaking changes<a class="hash-link" href="#breaking-changes" title="Direct link to heading">​</a></h2><p>Fortunately, this release has fully backward compatibility with <code>1.x.x</code> release. But I'd like to highlight some important changes:</p><ul><li><code>require</code> property in <code>register</code> function now marked as deprecated;</li><li><code>investigate</code> returns only initially loaded modules;</li><li>screen gets mounted in <code>async</code> way.</li></ul><p>You can read more about changes and migration in <a href="/react-native-bundle-splitter/docs/guides/upgrading-from-1.x">upgrading from 1.x guide</a></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="improvements-and-future-plans">Improvements and future plans<a class="hash-link" href="#improvements-and-future-plans" title="Direct link to heading">​</a></h2><p>Apart of that, documentation for 2.0.0 was updated. Now it includes updated code examples, more developer tips and so on.</p><p>I'm going to keep updating the documentation. I want to add snacks so that you can experiment with the code right in the browser and see how real applications are built using this library.</p>]]></content>
+        <content type="html"><![CDATA[<p>Announcement of new version release with more platforms support!</p><p>The react-native framework is actively developing. If earlier it was difficult to find a library that would support two platforms (iOS and Android) at the same time, now it is the de facto standard.</p><p>And the boundaries of influence of the react-native framework are expanding. The development team plans to add support for windows, macOS as the default platform.</p><p>Therefore, the new release adds support for the <strong>web</strong> platform (using <code>react-native-web</code>), <strong>macOS</strong> and <strong>windows</strong>.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="breaking-changes">Breaking changes<a href="#breaking-changes" class="hash-link" aria-label="Direct link to Breaking changes" title="Direct link to Breaking changes">​</a></h2><p>Fortunately, this release has fully backward compatibility with <code>1.x.x</code> release. But I'd like to highlight some important changes:</p><ul><li><code>require</code> property in <code>register</code> function now marked as deprecated;</li><li><code>investigate</code> returns only initially loaded modules;</li><li>screen gets mounted in <code>async</code> way.</li></ul><p>You can read more about changes and migration in <a href="/react-native-bundle-splitter/docs/guides/upgrading-from-1.x">upgrading from 1.x guide</a></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="improvements-and-future-plans">Improvements and future plans<a href="#improvements-and-future-plans" class="hash-link" aria-label="Direct link to Improvements and future plans" title="Direct link to Improvements and future plans">​</a></h2><p>Apart of that, documentation for 2.0.0 was updated. Now it includes updated code examples, more developer tips and so on.</p><p>I'm going to keep updating the documentation. I want to add snacks so that you can experiment with the code right in the browser and see how real applications are built using this library.</p>]]></content>
         <author>
             <name>Kirill Zyusko</name>
             <uri>https://github.com/kirillzyusko</uri>
@@ -37,7 +37,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Version 1.0.0 is released]]></title>
-        <id>version-1.0</id>
+        <id>https://kirillzyusko.github.io/react-native-bundle-splitter/blog/version-1.0</id>
         <link href="https://kirillzyusko.github.io/react-native-bundle-splitter/blog/version-1.0"/>
         <updated>2019-08-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Version 1.0.0 is released! Documentation on this site will be posted as soon as it will be ready (will be published in parts).]]></summary>
