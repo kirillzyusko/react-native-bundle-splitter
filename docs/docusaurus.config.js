@@ -89,7 +89,7 @@ const config = {
             dropdownActiveClassDisabled: true,
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/kirillzyusko/react-native-bundle-splitter',
             label: 'GitHub',
             position: 'right',
           },
