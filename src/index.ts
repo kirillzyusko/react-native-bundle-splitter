@@ -27,7 +27,7 @@ const register = <P extends {}>(component: PreLoadable & Partial<EnhancedPreLoad
 
     mapLoadable[name] = enhancedComponent;
 
-    return optimized(name) as React.ComponentClass<P>;
+    return optimized<P>(name);
 };
 
 const component = (name: string) => getComponent(name);

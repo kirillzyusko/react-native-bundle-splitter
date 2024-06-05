@@ -1,69 +1,34 @@
 import * as React from 'react';
 
-import { getComponent, isCached, getComponentFromCache } from './map';
+import { getComponent, getComponentFromCache, isCached } from './map';
 import { mapLoadable } from './bundler';
 
-type Props<T> = {
-  forwardedRef: React.Ref<T> | null
+type Props<T> = T & {
+  screenName: string;
 };
 
-type State = {
-  isComponentAvailable: boolean;
-};
+const Suspender = React.forwardRef(function <T extends {}>({ screenName, ...rest }: Props<T>, ref: React.Ref<any>) {
+  let OptimizedComponent = isCached(screenName) ? getComponentFromCache(screenName).component : null;
 
-const optimized = <T extends {}>(screenName: string): any => {
-  class OptimizedComponent<T> extends React.PureComponent<Props<T>, State> {
-    private component: React.ElementType | null = null;
-    private placeholder: React.ElementType | null = mapLoadable[screenName].placeholder;
-
-    constructor(props: Props<T>) {
-      super(props);
-      const cached = isCached(screenName);
-
-      if (cached) {
-        const { component } = getComponentFromCache(screenName);
-        this.component = component;
-      }
-
-      this.state = {
-        isComponentAvailable: cached
-      };
-    }
-
-    public async componentDidMount(): Promise<void> {
-      if (this.component === null) {
-        const { component } = await getComponent(screenName);
-        this.component = component;
-
-        this.setState({ isComponentAvailable: true });
-      }
-    }
-
-    public render(): React.ReactNode {
-      const { forwardedRef, ...rest } = this.props;
-      const BundleComponent = this.component;
-      const Placeholder = this.placeholder;
-      const PlaceholderComponent = Placeholder ? <Placeholder /> : Placeholder;
-
-      return this.state.isComponentAvailable && BundleComponent ?
-        <BundleComponent ref={forwardedRef} {...rest} /> : PlaceholderComponent;
-    }
-  }
-
-  const OptimizedComponentForwardedRef = React.forwardRef((props: Props<T>, ref: React.Ref<T> | null) => {
-    return <OptimizedComponent {...props} forwardedRef={ref} />;
-  });
-
-  const registerData = mapLoadable[screenName];
-
-  if (registerData.static) {
-    Object.keys(registerData.static).forEach((key: string) => {
-      // @ts-ignore
-      OptimizedComponentForwardedRef[key] = registerData.static[key];
+  if(!OptimizedComponent) {
+    throw getComponent(screenName).then(({ component }) => {
+      OptimizedComponent = component;
     });
   }
 
-  return OptimizedComponentForwardedRef;
-};
+  return <OptimizedComponent ref={ref} {...rest} />;
+})
+
+const optimized = <T extends object>(screenName: string): React.ForwardRefExoticComponent<React.PropsWithoutRef<T> & React.RefAttributes<unknown>> => {
+  return React.forwardRef((props: T, ref) => {
+    const { placeholder } = mapLoadable[screenName];
+
+    return (
+    <React.Suspense fallback={placeholder}>
+      <Suspender ref={ref} screenName={screenName} {...props} />
+    </React.Suspense>
+    );
+  })
+}
 
 export default optimized;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type ImportReturnType = {};
+type ImportReturnType = {default: React.Component<any>};
 
 export type RequireLoader = () => NodeRequire;
 
@@ -31,7 +31,7 @@ export type PreLoadable = RequireOnlyOne<BasePreLoadable, 'require' | 'loader'>;
 
 export type EnhancedPreLoadable = {
     cached: boolean;
-    placeholder: React.ElementType | null,
+    placeholder: React.SuspenseProps["fallback"],
     extract: string,
 };
 
