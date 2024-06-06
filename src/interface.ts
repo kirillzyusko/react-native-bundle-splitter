@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type ImportReturnType = {default: React.Component<any>};
+type ImportReturnType = {};
 
 export type RequireLoader = () => NodeRequire;
 
