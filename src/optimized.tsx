@@ -8,15 +8,13 @@ type Props<T> = T & {
 };
 
 const Suspender = React.forwardRef(function <T extends {}>({ screenName, ...rest }: Props<T>, ref: React.Ref<any>) {
-  let OptimizedComponent = isCached(screenName) ? getComponentFromCache(screenName).component : null;
+  const Component = isCached(screenName) ? getComponentFromCache(screenName).component : null;
 
-  if(!OptimizedComponent) {
-    throw getComponent(screenName).then(({ component }) => {
-      OptimizedComponent = component;
-    });
+  if(!Component) {
+    throw getComponent(screenName);
   }
 
-  return <OptimizedComponent ref={ref} {...rest} />;
+  return <Component ref={ref} {...rest} />;
 })
 
 const optimized = <T extends object>(screenName: string): React.ForwardRefExoticComponent<React.PropsWithoutRef<T> & React.RefAttributes<unknown>> => {
