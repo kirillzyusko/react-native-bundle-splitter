@@ -31,7 +31,7 @@ export type PreLoadable = RequireOnlyOne<BasePreLoadable, 'require' | 'loader'>;
 
 export type EnhancedPreLoadable = {
     cached: boolean;
-    placeholder: React.ElementType | null,
+    placeholder: React.SuspenseProps["fallback"],
     extract: string,
 };
 
