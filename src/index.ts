@@ -4,13 +4,14 @@ import { Component, EnhancedPreLoadable, PreLoadable } from './interface';
 import { cache, getComponent } from './map';
 
 const defaultPreLoadable: EnhancedPreLoadable = {
+    cached: false,
     placeholder: null,
     extract: 'default',
 };
 
 let i = 0;
 
-export const isCached = cache.has;
+const isCached = cache.has;
 
 const register = <P extends {}>(component: PreLoadable & Partial<EnhancedPreLoadable>) => {
     const name = `Component${i++}`;
@@ -34,7 +35,7 @@ const component = (name: string) => getComponent(name);
 const group = (groupName: string) => {
     const components: ReturnType<(typeof getComponent)>[] = [];
     mapLoadable.forEach(({ group, name }) => {
-        if(group === groupName){
+        if (group === groupName) {
             components.push(component(name))
         }
     });
@@ -53,4 +54,5 @@ const preload = () => preloadAPI;
 export {
     register,
     preload,
+    isCached
 }

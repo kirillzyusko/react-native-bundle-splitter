@@ -1,20 +1,19 @@
 import * as React from 'react';
 
-import { cache, getComponent } from './map';
+import { getComponent, getComponentFromCache } from './map';
 import { mapLoadable } from './bundler';
+import { isCached } from './index';
 
 type Props<T> = T & {
   screenName: string;
 };
 
 const Suspender = React.forwardRef(function <T extends {}>({ screenName, ...rest }: Props<T>, ref: React.Ref<any>) {
-  const isCached = cache.has(screenName);
+  const Component = isCached(screenName) ? getComponentFromCache(screenName)!.component : null;
 
-  if(!isCached) {
+  if(!Component) {
     throw getComponent(screenName);
   }
-
- const { component: Component } = cache.get(screenName)!;
 
   return <Component ref={ref} {...rest} />;
 })

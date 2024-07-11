@@ -1,3 +1,4 @@
+import { isCached } from './index';
 import { mapLoadable } from './bundler';
 import { RequireLoader, ImportLoader, CachedComponent } from './interface';
 
@@ -25,7 +26,7 @@ const nonBlockingLoader = (loader: RequireLoader | ImportLoader) => new Promise(
 });
 
 export const getComponent = async (name: string) => {
-    if (!cache.has(name)) {
+    if (isCached(name)) {
         const { require: load, loader, ...rest } = mapLoadable.get(name)!;
         let component = null;
 
@@ -46,3 +47,5 @@ export const getComponent = async (name: string) => {
 
     return cache.get(name);
 };
+
+export const getComponentFromCache = (name: string) => cache.get(name);

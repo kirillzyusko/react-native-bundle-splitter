@@ -33,6 +33,7 @@ type RequireOnlyOne<T, Keys extends keyof T = keyof T> =
 export type PreLoadable = RequireOnlyOne<BasePreLoadable, 'require' | 'loader'>;
 
 export type EnhancedPreLoadable = {
+    cached: boolean;
     placeholder: React.SuspenseProps["fallback"],
     extract: string,
 };
