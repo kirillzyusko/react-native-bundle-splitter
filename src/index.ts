@@ -1,7 +1,7 @@
 import optimized from './optimized';
 import { mapLoadable } from './bundler';
 import { Component, EnhancedPreLoadable, PreLoadable } from './interface';
-import { getComponent } from './map';
+import { cache, getComponent } from './map';
 
 const defaultPreLoadable: EnhancedPreLoadable = {
     placeholder: null,
@@ -9,6 +9,8 @@ const defaultPreLoadable: EnhancedPreLoadable = {
 };
 
 let i = 0;
+
+export const isCached = cache.has;
 
 const register = <P extends {}>(component: PreLoadable & Partial<EnhancedPreLoadable>) => {
     const name = `Component${i++}`;
