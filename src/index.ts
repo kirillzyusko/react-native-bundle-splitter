@@ -4,7 +4,7 @@ import { Component, EnhancedPreLoadable, PreLoadable } from './interface';
 import { cache, getComponent } from './map';
 
 const defaultPreLoadable: EnhancedPreLoadable = {
-    cached: false,
+    cached: true,
     placeholder: null,
     extract: 'default',
 };
