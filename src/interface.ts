@@ -6,12 +6,15 @@ export type RequireLoader = () => NodeRequire;
 
 export type ImportLoader = () => Promise<ImportReturnType>;
 
-type BasePreLoadable = {
-    require?: RequireLoader;
-    loader?: ImportLoader;
+type BaseComponent = {
     name?: string;
     group?: string;
     static?: object;
+};
+
+type BasePreLoadable = BaseComponent & {
+    require?: RequireLoader;
+    loader?: ImportLoader;
 };
 
 // helper, which transforms optional params to mandatory
@@ -30,9 +33,9 @@ type RequireOnlyOne<T, Keys extends keyof T = keyof T> =
 export type PreLoadable = RequireOnlyOne<BasePreLoadable, 'require' | 'loader'>;
 
 export type EnhancedPreLoadable = {
-    cached: boolean;
     placeholder: React.SuspenseProps["fallback"],
     extract: string,
 };
 
 export type Component = PreLoadable & EnhancedPreLoadable & { name: string };
+export type CachedComponent = BaseComponent & { component: typeof React.Component };
