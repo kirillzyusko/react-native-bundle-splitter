@@ -1,9 +1,9 @@
 import { mapLoadable } from './bundler';
-import { RequireLoader, ImportLoader } from './interface';
+import { RequireLoader, ImportLoader, CachedComponent } from './interface';
 
-const cache = {} as any;
+const cache = new Map<string, CachedComponent>();
 
-export const isCached = (componentName: string) => !!cache[componentName];
+export const isCached = cache.has;
 
 const DEPRECATED_API_MESSAGE = "You are using a deprecated API that will be removed in a future releases. Please consider using `loader` instead of `require`";
 const ERROR_WHILE_LOADING = "An error occurred while lazy loading a component. Perhaps the path where you are trying to load the component does not exist? Stacktrace: ";
@@ -28,7 +28,7 @@ const nonBlockingLoader = (loader: RequireLoader | ImportLoader) => new Promise(
 
 export const getComponent = async (name: string) => {
     if (!isCached(name)) {
-        const { require: load, loader, ...rest } = mapLoadable[name];
+        const { require: load, loader, ...rest } = mapLoadable.get(name)!;
         let component = null;
 
         if (loader) {
@@ -39,14 +39,14 @@ export const getComponent = async (name: string) => {
             component = await nonBlockingLoader(load);
         }
 
-        cache[name] = {
+        cache.set(name, {
             ...rest,
             // @ts-ignore
             component: component[rest.extract],
-        };
+        });
     }
 
-    return cache[name];
+    return cache.get(name);
 };
 
-export const getComponentFromCache = (name: string) => cache[name];
+export const getComponentFromCache = cache.get;
