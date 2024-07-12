@@ -49,4 +49,4 @@ export const getComponent = async (name: string) => {
     return cache.get(name);
 };
 
-export const getComponentFromCache = (name: string) => cache.get(name);
+export const getComponentFromCache = cache.get;
