@@ -1,7 +1,7 @@
 import { mapLoadable } from './bundler';
 import { RequireLoader, ImportLoader, CachedComponent } from './interface';
 
-export const cache = new Map<string, CachedComponent>();
+const cache = new Map<string, CachedComponent>();
 
 export const isCached = cache.has;
 
