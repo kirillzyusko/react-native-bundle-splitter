@@ -1,8 +1,7 @@
 import * as React from 'react';
 
-import { getComponent, getComponentFromCache } from './map';
+import { getComponent, getComponentFromCache, isCached } from './map';
 import { mapLoadable } from './bundler';
-import { isCached } from './index';
 
 type Props<T> = T & {
   screenName: string;
