@@ -32,11 +32,13 @@ After installation edit your `package.json`:
 And then run analyzer:
 
 - In one terminal:
+
 ```bash
 react-native start
 ```
 
 - In the second terminal
+
 ```bash
 yarn run bundle:analysis
 # or with npm
