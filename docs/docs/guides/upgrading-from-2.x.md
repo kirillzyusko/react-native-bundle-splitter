@@ -15,6 +15,6 @@ Fortunately, this release is fully backward compatible with the `2.x.x` release.
 
 ## Migration
 
-I believe that for all projects that are using this library, there will be no changes for you and you can simply bump the version of the library in `package.json` to `3.x.x`.
+I believe that for all projects that are using this library, there will be no changes and you can simply bump the version of the library in `package.json` to `3.x.x`.
 
 If you use `react-native` version `0.59.x` then you should stick to `2.x.x` version of the library.
