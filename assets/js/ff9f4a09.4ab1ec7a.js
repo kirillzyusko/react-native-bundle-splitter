@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[438],{4282:t=>{t.exports=JSON.parse('{"title":"Fundamentals","slug":"/category/fundamentals","permalink":"/react-native-bundle-splitter/docs/2.x/category/fundamentals","navigation":{"next":{"title":"Getting started","permalink":"/react-native-bundle-splitter/docs/2.x/fundamentals/getting-started"}}}')}}]);
