@@ -46,6 +46,9 @@ const config = {
             '2.x': {
               label: '2.x',
             },
+            '3.x': {
+              label: '3.x',
+            },
           },
         },
         blog: {
