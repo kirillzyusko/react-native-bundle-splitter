@@ -3,7 +3,7 @@ import { RequireLoader, ImportLoader, CachedComponent } from './interface';
 
 const cache = new Map<string, CachedComponent>();
 
-export const isCached = cache.has;
+export const isCached = (name: string) => cache.has(name);
 
 const DEPRECATED_API_MESSAGE = "You are using a deprecated API that will be removed in a future releases. Please consider using `loader` instead of `require`";
 const ERROR_WHILE_LOADING = "An error occurred while lazy loading a component. Perhaps the path where you are trying to load the component does not exist? Stacktrace: ";
@@ -49,4 +49,4 @@ export const getComponent = async (name: string) => {
     return cache.get(name);
 };
 
-export const getComponentFromCache = cache.get;
+export const getComponentFromCache = (name: string) => cache.get(name);
