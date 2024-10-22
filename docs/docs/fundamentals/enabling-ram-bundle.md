@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ### RAM Bundle format
 
-[Metro](https://facebook.github.io/metro/) bundler for react-native offers special format - RAM (Random Access Memory). RAM bundle is a new format of React Native application packaging that helps to optimize load times of your app. 
+[Metro](https://facebook.github.io/metro/) bundler for react-native offers special format - RAM (Random Access Memory). RAM bundle is a new format of React Native application packaging that helps to optimize load times of your app.
 
 You can read [more](https://facebook.github.io/metro/docs/bundling) about this bundle format.
 
@@ -32,12 +32,24 @@ The official way to bundle your React Native apps at the moment is using Metro B
 
 - **File RAM Bundle**: With this approach, every module is stored in a separate file with the name `js-modules/${id}.js`, where `${id}` is the module’s ID. This format is used by default on Android devices but has the same purpose: to have fast access to individual modules in your bundle.
 
-## Enabling RAM Bundle feature in your application
+:::caution RAM Bundle deprecation
+Starting from `react-native` 0.75 RAM Bundle format has been [deprecated](https://reactnative.dev/blog/2024/08/12/release-0.75#community-cli-removal-of-ram-bundle-and-profile-hermes-commands). The **recommended** approach is to use `Hermes` engine, where lazy loading is enabled by default and no extra-actions are required to enable it.
+:::
+
+:::danger Hermes enabled
+If you are trying to enable this feature with Hermes engine, you may faced with application crash. It's a known [issue](https://github.com/facebook/react-native/issues/25730). If you are using Hermes then you **don't need** to use RAM format, because Hermes is using lazy loadable [format](https://github.com/facebook/react-native/issues/25730#issuecomment-514115115) by default. **RAM format is actual only for JSC engine.**
+:::
+
+## Enabling RAM Bundle feature in your application (JSC only)
 
 For enabling this format in your application you need to do pretty simple steps for each platform.
 
 :::tip Enable per platform
 Although enabling RAM Bundle format is recommended for both platforms, you can only enable it for one if necessary.
+:::
+
+:::info Actual only for JSC
+All steps below are actual only for **JSC** engine. If you are using Hermes engine on all platforms then you can go to the [next](./basic-usage.md) section.
 :::
 
 ### Android
@@ -54,10 +66,6 @@ project.ext.react = [
 
 :::info
 You can choose between formats, since Android support both format (indexed and file). But since iOS support only `indexed` format, would be reasonable to keep both platform in consistent and use `indexed` format. But if you decided for some reasons to use `file` format, you don't need to add `extraPackagerArgs: ["--indexed-ram-bundle"]` line. By default android uses `file` format.
-:::
-
-:::caution Hermes enabled
-If you are trying to enable this feature with Hermes engine, you may faced with application crash. It's a known [issue](https://github.com/facebook/react-native/issues/25730). As a temporary solution you can don't activate this bundle format for Android, since Hermes is using similar [mechanism](https://github.com/facebook/react-native/issues/25730#issuecomment-514115115).
 :::
 
 ### iOS
