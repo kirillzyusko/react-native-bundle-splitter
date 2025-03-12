@@ -2,7 +2,24 @@
 sidebar_position: 2
 ---
 
-# Enabling Ram Bundle
+# Enabling Lazy Bundle
+
+To enable on-demand loading of JavaScript code, you need to activate the lazy bundle feature. In `react-native`, there are two primary types of lazy bundles:
+
+- `RAM` (available only for the **JSC** engine, deprecated in `react-native@0.75`);
+- `mmap` (available only for the **Hermes** engine).
+
+Since `mmap` is enabled by default in **Hermes**, this guide focuses on enabling the `RAM` bundle format.
+
+:::info Important Note for All JS Engines
+Enabling the lazy bundle format does not automatically mean your app is fully leveraging the benefits of lazy loading. Simply activating the format does not guarantee optimal performance or resource utilization.
+
+To truly harness the power of lazy loading (such as caching, pre-loading, and other advanced features) you should use this library. For more details, refer to the [basic usage](./basic-usage.md) and [async loading](../guides/async-loading.md) guides.
+:::
+
+:::caution Hermes engine apps
+This page is focusing only on enabling lazy bundle format for **JSC** engine. If you are using **Hermes** then no extra steps are required (since lazy format is enabled by default) and you can go to the next [basic usage](./basic-usage.md) guide and skip this page.
+:::
 
 ## RAM... What is it? About RAM Bundle format
 
@@ -32,24 +49,12 @@ The official way to bundle your React Native apps at the moment is using Metro B
 
 - **File RAM Bundle**: With this approach, every module is stored in a separate file with the name `js-modules/${id}.js`, where `${id}` is the module’s ID. This format is used by default on Android devices but has the same purpose: to have fast access to individual modules in your bundle.
 
-:::caution RAM Bundle deprecation
-Starting from `react-native` 0.75 RAM Bundle format has been [deprecated](https://reactnative.dev/blog/2024/08/12/release-0.75#community-cli-removal-of-ram-bundle-and-profile-hermes-commands). The **recommended** approach is to use `Hermes` engine, where lazy loading is enabled by default and no extra-actions are required to enable it.
-:::
-
-:::danger Hermes enabled
-If you are trying to enable this feature with Hermes engine, you may faced with application crash. It's a known [issue](https://github.com/facebook/react-native/issues/25730). If you are using Hermes then you **don't need** to use RAM format, because Hermes is using lazy loadable [format](https://github.com/facebook/react-native/issues/25730#issuecomment-514115115) by default. **RAM format is actual only for JSC engine.**
-:::
-
 ## Enabling RAM Bundle feature in your application (JSC only)
 
 For enabling this format in your application you need to do pretty simple steps for each platform.
 
 :::tip Enable per platform
 Although enabling RAM Bundle format is recommended for both platforms, you can only enable it for one if necessary.
-:::
-
-:::info Actual only for JSC
-All steps below are actual only for **JSC** engine. If you are using Hermes engine on all platforms then you can go to the [next](./basic-usage.md) section.
 :::
 
 ### Android
