@@ -2,10 +2,23 @@
 sidebar_position: 2
 ---
 
-# Enabling Ram Bundle
+# Enabling Lazy Bundle
 
-:::caution Actual only for JSC
-This page is actual only for **JSC** engine. If you are using **Hermes** then no extra steps are required and you can check the [basic usage](./basic-usage.md) guide.
+To enable on-demand loading of JavaScript code, you need to activate the lazy bundle feature. In `react-native`, there are two primary types of lazy bundles:
+
+- `RAM` (available only for the **JSC** engine, deprecated in `react-native@0.75`);
+- `mmap` (available only for the **Hermes** engine).
+
+Since `mmap` is enabled by default in **Hermes**, this guide focuses on enabling the `RAM` bundle format.
+
+:::info Important Note for All JS Engines
+Enabling the lazy bundle format does not automatically mean your app is fully leveraging the benefits of lazy loading. Simply activating the format does not guarantee optimal performance or resource utilization.
+
+To truly harness the power of lazy loading (such as caching, pre-loading, and other advanced features) you should use this library. For more details, refer to the [basic usage](./basic-usage.md) and [async loading](../guides/async-loading.md) guides.
+:::
+
+:::caution Hermes engine apps
+This page is focusing only on enabling lazy bundle format for **JSC** engine. If you are using **Hermes** then no extra steps are required (since lazy format is enabled by default) and you can go to the next [basic usage](./basic-usage.md) guide and skip this page.
 :::
 
 ## RAM... What is it? About RAM Bundle format
