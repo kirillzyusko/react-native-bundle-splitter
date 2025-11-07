@@ -10,13 +10,15 @@ export const investigate = () => {
     }
 
     const modules = require.getModules();
-    const moduleIds = Object.keys(modules);
-    const loaded = moduleIds
-        .filter(moduleId => modules[moduleId].isInitialized)
-        .map(moduleId => modules[moduleId].verboseName);
-    const waiting = moduleIds
-        .filter(moduleId => !modules[moduleId].isInitialized)
-        .map(moduleId => modules[moduleId].verboseName);
+    const loaded = [];
+    const waiting = [];
+    for (const [key, module] of modules) {
+        if (module.isInitialized) {
+            loaded.push(module.verboseName);
+        } else {
+            waiting.push(module.verboseName);
+        }
+    }
 
     return { loaded, waiting }
 };
