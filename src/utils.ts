@@ -12,11 +12,14 @@ export const investigate = () => {
     const modules = require.getModules();
     const loaded = [];
     const waiting = [];
-    for (const [key, module] of modules) {
-        if (module.isInitialized) {
-            loaded.push(module.verboseName);
-        } else {
-            waiting.push(module.verboseName);
+    if (modules instanceof Map) {
+        for (const [key, module] of modules) {
+            (module.isInitialized ? loaded : waiting).push(module.verboseName);
+        }
+    } else {
+        for (const key of Object.keys(modules)) {
+            const module = modules[key];
+            (module.isInitialized ? loaded : waiting).push(module.verboseName);
         }
     }
 
