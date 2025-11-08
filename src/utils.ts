@@ -10,13 +10,18 @@ export const investigate = () => {
     }
 
     const modules = require.getModules();
-    const moduleIds = Object.keys(modules);
-    const loaded = moduleIds
-        .filter(moduleId => modules[moduleId].isInitialized)
-        .map(moduleId => modules[moduleId].verboseName);
-    const waiting = moduleIds
-        .filter(moduleId => !modules[moduleId].isInitialized)
-        .map(moduleId => modules[moduleId].verboseName);
+    const loaded = [];
+    const waiting = [];
+    if (modules instanceof Map) {
+        for (const [key, module] of modules) {
+            (module.isInitialized ? loaded : waiting).push(module.verboseName);
+        }
+    } else {
+        for (const key of Object.keys(modules)) {
+            const module = modules[key];
+            (module.isInitialized ? loaded : waiting).push(module.verboseName);
+        }
+    }
 
     return { loaded, waiting }
 };
