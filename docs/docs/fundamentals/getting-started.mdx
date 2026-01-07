@@ -22,7 +22,7 @@ import BundleSplittingImageUrl from "@site/static/img/bundle-splitting.png";
 
 ## What does this package do?
 
-This package is built on top of **RAM** bundles. In addition to the base functionality provided by React Native, it allows you to:
+This package is built on top of **RAM**/**mmap** (aka **lazy**) bundles. In addition to the base functionality provided by React Native, it allows you to:
 
 - avoid boilerplate code (you don't need to write code as per react-native docs - you can simply wrap your component into `register` function);
 - use `preload` API (when you can load screens in advance and the transition to them will be as if the entire bundle was loaded at once);
@@ -51,3 +51,33 @@ This module does not use any native (platform) dependencies and does not need to
 :::tip Minimal react-native version
 You need to use react-native 0.60 or higher, since feature with inline requires is available out-of-box only from this version.
 :::
+
+## FAQ
+
+### Why not just use React.lazy()?
+
+`React.lazy()` works in React Native, but it doesn't provide preloading. This library is a small abstraction over lazy bundle format that adds:
+
+- **Preloading API** - load screens before navigation to avoid white screens/flickers
+- **Cache management** - track what's loaded, avoid redundant loads
+- **Easy setup** - simple `register()` wrapper
+
+### Why not use react-navigation's `getComponent`?
+
+React Navigation's `getComponent` doesn't preload your component. If your app is heavy, you may see white screens, flickers, or janky transitions when navigating. This library lets you preload screens in advance for smooth navigation.
+
+### Is this library relevant if already using Hermes?
+
+Yes! Hermes enables the lazy bundle format (`mmap`) by default, but you still need a way to manage preloading and caching. This library provides that abstraction layer. See [enabling lazy bundle](./enabling-lazy-bundle.md) for more details on Hermes vs JSC.
+
+### How is this different from Re.Pack?
+
+Re.Pack replaces Metro entirely with `webpack`/`rspack`. This library works with your existing Metro setup (`RAM`/`mmap` bundles). You can use both together if needed.
+
+**Use this library if:** you want preloading and cache management with minimal config.
+
+**Use Re.Pack if:** you need webpack ecosystem features or module federation.
+
+### Do I need this for small apps?
+
+Probably not. If your app has fewer than 5-10 screens, the overhead isn't worth it.
